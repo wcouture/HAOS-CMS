@@ -24,17 +24,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1148"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00224mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Jun 2025 15:54:04 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/HAOS-CMS/HAOS-CMS.37g91hggs5.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\HAOS-CMS.37g91hggs5.bundle.scp.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"37g91hggs5"},{"Name":"integrity","Value":"sha256-wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs="},{"Name":"label","Value":"_content/HAOS-CMS/HAOS-CMS.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5611"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Jun 2025 17:27:38 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/HAOS-CMS/HAOS-CMS.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\HAOS-CMS.37g91hggs5.bundle.scp.css'))</AssetFile>
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\HAOS-CMS.xrlttcledh.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5611"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Jun 2025 17:27:38 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6030"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Jun 2025 17:51:08 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/HAOS-CMS/HAOS-CMS.xrlttcledh.bundle.scp.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\HAOS-CMS.xrlttcledh.bundle.scp.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xrlttcledh"},{"Name":"integrity","Value":"sha256-fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw="},{"Name":"label","Value":"_content/HAOS-CMS/HAOS-CMS.bundle.scp.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6030"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Jun 2025 17:51:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/HAOS-CMS/lib/bootstrap/dist/css/bootstrap-grid.bqjiyaj88i.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.css'))</AssetFile>

@@ -224,3 +224,25 @@ main[b-j4xalbmjgc] {
 .error-message[b-z7qyoctb9d] {
   color: red;
 }
+/* _content/HAOS-CMS/Components/Pages/Workouts.razor.rz.scp.css */
+h1[b-ptpj96bnxx] {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+form[b-ptpj96bnxx] {
+  margin: 30px auto;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, auto);
+  width: min-content;
+}
+
+form p[b-ptpj96bnxx],
+form h6[b-ptpj96bnxx] {
+  margin-right: auto;
+  text-wrap: wrap;
+}
+
+input[type="number"][b-ptpj96bnxx] {
+  width: 50px;
+}

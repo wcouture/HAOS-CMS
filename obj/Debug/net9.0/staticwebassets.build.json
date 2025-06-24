@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Fz624IUX2tp1I7UEwrCCJGqqONQRHZENCNCj9ke85hw=",
+  "Hash": "fDwFr4rNb4CqQdM4ariBfHS7cAvE0CwLmwUpcurBC9A=",
   "Source": "HAOS-CMS",
   "BasePath": "_content/HAOS-CMS",
   "Mode": "Default",
@@ -773,12 +773,12 @@
       "OriginalItemSpec": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map"
     },
     {
-      "Identity": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-f3fhg6ptrt.gz",
+      "Identity": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-8ko6jbqbpd.gz",
       "SourceId": "HAOS-CMS",
       "SourceType": "Computed",
       "ContentRoot": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/HAOS-CMS",
-      "RelativePath": "HAOS-CMS#[.{fingerprint=f3fhg6ptrt}]?.styles.css.gz",
+      "RelativePath": "HAOS-CMS#[.{fingerprint=8ko6jbqbpd}]?.styles.css.gz",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Alternative",
@@ -787,8 +787,8 @@
       "RelatedAsset": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/bundle/HAOS-CMS.styles.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "o1reo1l8m4",
-      "Integrity": "bIzwI32ERfJqis2dOprjmxQOonINwZRqZy2KJmXlbuQ=",
+      "Fingerprint": "9ki85wt50f",
+      "Integrity": "+cTyPmtY7hc9R+sRJB5YvDfQ9bX2B26Hz92V88AtMjA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/bundle/HAOS-CMS.styles.css"
@@ -941,12 +941,12 @@
       "OriginalItemSpec": "/Users/williamcouture/.nuget/packages/blazor.bootstrap/3.3.1/staticwebassets/blazor.bootstrap.theme-switcher.js"
     },
     {
-      "Identity": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-37g91hggs5.gz",
+      "Identity": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-xrlttcledh.gz",
       "SourceId": "HAOS-CMS",
       "SourceType": "Computed",
       "ContentRoot": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/HAOS-CMS",
-      "RelativePath": "HAOS-CMS#[.{fingerprint=37g91hggs5}]!.bundle.scp.css.gz",
+      "RelativePath": "HAOS-CMS#[.{fingerprint=xrlttcledh}]!.bundle.scp.css.gz",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Alternative",
@@ -955,8 +955,8 @@
       "RelatedAsset": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/projectbundle/HAOS-CMS.bundle.scp.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "h3nyszbltj",
-      "Integrity": "baFkVqZwOOoTXt9yM1TUJeAiY9I9bJ9A82LQRdj/B44=",
+      "Fingerprint": "76aphjev43",
+      "Integrity": "v3zctddqw6hNu0BbPaZJH8RvdhkGH2QOWS1IEjSPmQc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/projectbundle/HAOS-CMS.bundle.scp.css"
@@ -1375,8 +1375,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "f3fhg6ptrt",
-      "Integrity": "qx6bg62gW3pBAJvS/WZQBd7qgFxM95Croy71h0lC82Q=",
+      "Fingerprint": "8ko6jbqbpd",
+      "Integrity": "KN8dAYh7KlOltjVuPHJxhGXSEcMJhv4RCvgzbCLpCgw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/bundle/HAOS-CMS.styles.css"
@@ -1396,8 +1396,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "37g91hggs5",
-      "Integrity": "wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs=",
+      "Fingerprint": "xrlttcledh",
+      "Integrity": "fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/projectbundle/HAOS-CMS.bundle.scp.css"
@@ -4289,13 +4289,13 @@
       ]
     },
     {
-      "Route": "HAOS-CMS.37g91hggs5.bundle.scp.css",
-      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-37g91hggs5.gz",
+      "Route": "HAOS-CMS.8ko6jbqbpd.styles.css",
+      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-8ko6jbqbpd.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000551267916"
+          "Quality": "0.000503271263"
         }
       ],
       "ResponseHeaders": [
@@ -4305,15 +4305,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1813"
+          "Value": "1986"
         },
         {
           "Name": "ETag",
-          "Value": "\"baFkVqZwOOoTXt9yM1TUJeAiY9I9bJ9A82LQRdj/B44=\""
+          "Value": "\"+cTyPmtY7hc9R+sRJB5YvDfQ9bX2B26Hz92V88AtMjA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 17:27:38 GMT"
+          "Value": "Tue, 24 Jun 2025 17:51:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4333,305 +4333,7 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "37g91hggs5"
-        },
-        {
-          "Name": "label",
-          "Value": "HAOS-CMS.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs="
-        }
-      ]
-    },
-    {
-      "Route": "HAOS-CMS.37g91hggs5.bundle.scp.css",
-      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/projectbundle/HAOS-CMS.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5611"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 17:27:38 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "37g91hggs5"
-        },
-        {
-          "Name": "label",
-          "Value": "HAOS-CMS.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs="
-        }
-      ]
-    },
-    {
-      "Route": "HAOS-CMS.37g91hggs5.bundle.scp.css.gz",
-      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-37g91hggs5.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1813"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"baFkVqZwOOoTXt9yM1TUJeAiY9I9bJ9A82LQRdj/B44=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 17:27:38 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "37g91hggs5"
-        },
-        {
-          "Name": "label",
-          "Value": "HAOS-CMS.bundle.scp.css.gz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-baFkVqZwOOoTXt9yM1TUJeAiY9I9bJ9A82LQRdj/B44="
-        }
-      ]
-    },
-    {
-      "Route": "HAOS-CMS.bundle.scp.css",
-      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-37g91hggs5.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000551267916"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1813"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"baFkVqZwOOoTXt9yM1TUJeAiY9I9bJ9A82LQRdj/B44=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 17:27:38 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs="
-        }
-      ]
-    },
-    {
-      "Route": "HAOS-CMS.bundle.scp.css",
-      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/projectbundle/HAOS-CMS.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5611"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 17:27:38 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-wcAVXs8uqtfGQ2ZSdst1z3YbJxhh4ErpVu3tqiVCxgs="
-        }
-      ]
-    },
-    {
-      "Route": "HAOS-CMS.bundle.scp.css.gz",
-      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-37g91hggs5.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1813"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"baFkVqZwOOoTXt9yM1TUJeAiY9I9bJ9A82LQRdj/B44=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 17:27:38 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-baFkVqZwOOoTXt9yM1TUJeAiY9I9bJ9A82LQRdj/B44="
-        }
-      ]
-    },
-    {
-      "Route": "HAOS-CMS.f3fhg6ptrt.styles.css",
-      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-f3fhg6ptrt.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000540832883"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1848"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"bIzwI32ERfJqis2dOprjmxQOonINwZRqZy2KJmXlbuQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 17:27:38 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"qx6bg62gW3pBAJvS/WZQBd7qgFxM95Croy71h0lC82Q=\""
+          "Value": "W/\"KN8dAYh7KlOltjVuPHJxhGXSEcMJhv4RCvgzbCLpCgw=\""
         },
         {
           "Name": "Link",
@@ -4641,11 +4343,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "f3fhg6ptrt"
+          "Value": "8ko6jbqbpd"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-qx6bg62gW3pBAJvS/WZQBd7qgFxM95Croy71h0lC82Q="
+          "Value": "sha256-KN8dAYh7KlOltjVuPHJxhGXSEcMJhv4RCvgzbCLpCgw="
         },
         {
           "Name": "label",
@@ -4654,7 +4356,7 @@
       ]
     },
     {
-      "Route": "HAOS-CMS.f3fhg6ptrt.styles.css",
+      "Route": "HAOS-CMS.8ko6jbqbpd.styles.css",
       "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/bundle/HAOS-CMS.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -4668,7 +4370,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5692"
+          "Value": "6111"
         },
         {
           "Name": "Content-Type",
@@ -4676,11 +4378,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qx6bg62gW3pBAJvS/WZQBd7qgFxM95Croy71h0lC82Q=\""
+          "Value": "\"KN8dAYh7KlOltjVuPHJxhGXSEcMJhv4RCvgzbCLpCgw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 17:27:38 GMT"
+          "Value": "Tue, 24 Jun 2025 17:51:08 GMT"
         },
         {
           "Name": "Link",
@@ -4690,11 +4392,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "f3fhg6ptrt"
+          "Value": "8ko6jbqbpd"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-qx6bg62gW3pBAJvS/WZQBd7qgFxM95Croy71h0lC82Q="
+          "Value": "sha256-KN8dAYh7KlOltjVuPHJxhGXSEcMJhv4RCvgzbCLpCgw="
         },
         {
           "Name": "label",
@@ -4703,8 +4405,8 @@
       ]
     },
     {
-      "Route": "HAOS-CMS.f3fhg6ptrt.styles.css.gz",
-      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-f3fhg6ptrt.gz",
+      "Route": "HAOS-CMS.8ko6jbqbpd.styles.css.gz",
+      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-8ko6jbqbpd.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4713,7 +4415,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1848"
+          "Value": "1986"
         },
         {
           "Name": "Content-Type",
@@ -4721,11 +4423,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bIzwI32ERfJqis2dOprjmxQOonINwZRqZy2KJmXlbuQ=\""
+          "Value": "\"+cTyPmtY7hc9R+sRJB5YvDfQ9bX2B26Hz92V88AtMjA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 17:27:38 GMT"
+          "Value": "Tue, 24 Jun 2025 17:51:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4743,7 +4445,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "f3fhg6ptrt"
+          "Value": "8ko6jbqbpd"
         },
         {
           "Name": "label",
@@ -4751,18 +4453,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-bIzwI32ERfJqis2dOprjmxQOonINwZRqZy2KJmXlbuQ="
+          "Value": "sha256-+cTyPmtY7hc9R+sRJB5YvDfQ9bX2B26Hz92V88AtMjA="
         }
       ]
     },
     {
-      "Route": "HAOS-CMS.styles.css",
-      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-f3fhg6ptrt.gz",
+      "Route": "HAOS-CMS.bundle.scp.css",
+      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-xrlttcledh.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000540832883"
+          "Quality": "0.000512295082"
         }
       ],
       "ResponseHeaders": [
@@ -4772,15 +4474,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1848"
+          "Value": "1951"
         },
         {
           "Name": "ETag",
-          "Value": "\"bIzwI32ERfJqis2dOprjmxQOonINwZRqZy2KJmXlbuQ=\""
+          "Value": "\"v3zctddqw6hNu0BbPaZJH8RvdhkGH2QOWS1IEjSPmQc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 17:27:38 GMT"
+          "Value": "Tue, 24 Jun 2025 17:51:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4800,7 +4502,144 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"qx6bg62gW3pBAJvS/WZQBd7qgFxM95Croy71h0lC82Q=\""
+          "Value": "W/\"fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw="
+        }
+      ]
+    },
+    {
+      "Route": "HAOS-CMS.bundle.scp.css",
+      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/projectbundle/HAOS-CMS.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6030"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 17:51:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw="
+        }
+      ]
+    },
+    {
+      "Route": "HAOS-CMS.bundle.scp.css.gz",
+      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-xrlttcledh.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1951"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"v3zctddqw6hNu0BbPaZJH8RvdhkGH2QOWS1IEjSPmQc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 17:51:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-v3zctddqw6hNu0BbPaZJH8RvdhkGH2QOWS1IEjSPmQc="
+        }
+      ]
+    },
+    {
+      "Route": "HAOS-CMS.styles.css",
+      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-8ko6jbqbpd.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000503271263"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1986"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+cTyPmtY7hc9R+sRJB5YvDfQ9bX2B26Hz92V88AtMjA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 17:51:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"KN8dAYh7KlOltjVuPHJxhGXSEcMJhv4RCvgzbCLpCgw=\""
         },
         {
           "Name": "Link",
@@ -4810,7 +4649,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-qx6bg62gW3pBAJvS/WZQBd7qgFxM95Croy71h0lC82Q="
+          "Value": "sha256-KN8dAYh7KlOltjVuPHJxhGXSEcMJhv4RCvgzbCLpCgw="
         }
       ]
     },
@@ -4829,7 +4668,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5692"
+          "Value": "6111"
         },
         {
           "Name": "Content-Type",
@@ -4837,11 +4676,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qx6bg62gW3pBAJvS/WZQBd7qgFxM95Croy71h0lC82Q=\""
+          "Value": "\"KN8dAYh7KlOltjVuPHJxhGXSEcMJhv4RCvgzbCLpCgw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 17:27:38 GMT"
+          "Value": "Tue, 24 Jun 2025 17:51:08 GMT"
         },
         {
           "Name": "Link",
@@ -4851,13 +4690,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-qx6bg62gW3pBAJvS/WZQBd7qgFxM95Croy71h0lC82Q="
+          "Value": "sha256-KN8dAYh7KlOltjVuPHJxhGXSEcMJhv4RCvgzbCLpCgw="
         }
       ]
     },
     {
       "Route": "HAOS-CMS.styles.css.gz",
-      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-f3fhg6ptrt.gz",
+      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-8ko6jbqbpd.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4866,7 +4705,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1848"
+          "Value": "1986"
         },
         {
           "Name": "Content-Type",
@@ -4874,11 +4713,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bIzwI32ERfJqis2dOprjmxQOonINwZRqZy2KJmXlbuQ=\""
+          "Value": "\"+cTyPmtY7hc9R+sRJB5YvDfQ9bX2B26Hz92V88AtMjA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 17:27:38 GMT"
+          "Value": "Tue, 24 Jun 2025 17:51:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4896,7 +4735,168 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-bIzwI32ERfJqis2dOprjmxQOonINwZRqZy2KJmXlbuQ="
+          "Value": "sha256-+cTyPmtY7hc9R+sRJB5YvDfQ9bX2B26Hz92V88AtMjA="
+        }
+      ]
+    },
+    {
+      "Route": "HAOS-CMS.xrlttcledh.bundle.scp.css",
+      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-xrlttcledh.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000512295082"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1951"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"v3zctddqw6hNu0BbPaZJH8RvdhkGH2QOWS1IEjSPmQc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 17:51:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xrlttcledh"
+        },
+        {
+          "Name": "label",
+          "Value": "HAOS-CMS.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw="
+        }
+      ]
+    },
+    {
+      "Route": "HAOS-CMS.xrlttcledh.bundle.scp.css",
+      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/projectbundle/HAOS-CMS.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6030"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 17:51:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xrlttcledh"
+        },
+        {
+          "Name": "label",
+          "Value": "HAOS-CMS.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fdAQONO5LgcuqzuLocUNaEfTwPB6ykDNwz6H3d4FdCw="
+        }
+      ]
+    },
+    {
+      "Route": "HAOS-CMS.xrlttcledh.bundle.scp.css.gz",
+      "AssetFile": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-xrlttcledh.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1951"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"v3zctddqw6hNu0BbPaZJH8RvdhkGH2QOWS1IEjSPmQc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 17:51:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xrlttcledh"
+        },
+        {
+          "Name": "label",
+          "Value": "HAOS-CMS.bundle.scp.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-v3zctddqw6hNu0BbPaZJH8RvdhkGH2QOWS1IEjSPmQc="
         }
       ]
     },

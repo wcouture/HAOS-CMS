@@ -5,6 +5,18 @@
 
 <h1>Exercises</h1>
 
+<form @formname="workoutForm" @onsubmit="OnAddWorkout" method="post">
+    <h6>Label</h6>
+    <h6>Reps</h6>
+    <h6>Sets</h6>
+    <h6>Weight</h6>
+    <p><input @bind-value="_newWorkout!.Label" required type="text"/></p>
+    <p><input @bind-value="_newWorkout!.RecommendedReps" min="1" max="99" required type="number"/></p>
+    <p><input @bind-value="_newWorkout!.RecommendedSets" min="1" max="99" required type="number"/></p>
+    <p><input @bind-value="_newWorkout!.RecommendedWeight" min="1" max="999" required type="number"/></p>
+    <p><button type="submit">Add Exercise</button></p>
+</form>
+
 @if (workouts == null)
 {
     <p><em>Loading...</em></p>
@@ -34,7 +46,7 @@ else
                     
                     <td>
                         <a class="btn" href="#"><Icon Name="IconName.PencilSquare"/></a>
-                        <a class="btn" href="#"><Icon Name="IconName.XCircle"/></a>
+                        <button class="btn" @onclick="async () => await OnDeleteWorkout(exercise.Id)"><Icon Name="IconName.XCircle"/></button>
                     </td>
                 </tr>
             }
@@ -48,10 +60,33 @@ else
     [Inject]
     public required IHttpClientFactory httpClientFactory {get; set;}
 
+    [SupplyParameterFromForm]
+    private Workout? _newWorkout {get; set;} = new();
+
     protected override async Task OnInitializedAsync()
     {
+        await LoadWorkouts();
+    }
+
+    private async Task LoadWorkouts() {
         var httpClient = httpClientFactory.CreateClient("api");
         var response = await httpClient.GetAsync("/workouts/all");
         workouts = await response.Content.ReadFromJsonAsync<List<Workout>>();
+    }
+
+    private async Task OnAddWorkout() {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PostAsJsonAsync("/workouts/add", _newWorkout);
+
+        if (response.IsSuccessStatusCode) {
+            await LoadWorkouts();
+        }
+    }
+
+    private async Task OnDeleteWorkout(int id) {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.DeleteAsync($"/workouts/delete/{id}");
+        if (response.IsSuccessStatusCode)
+            await LoadWorkouts();
     }
 }

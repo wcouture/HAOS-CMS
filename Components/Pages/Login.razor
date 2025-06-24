@@ -32,7 +32,7 @@
     }
 
     [Inject]
-    public required ProtectedSessionStorage sessionStorage {get; set;}
+    public required ProtectedLocalStorage localStorage {get; set;}
     [Inject]
     public required NavigationManager Navigation {get; set;}
 
@@ -45,7 +45,7 @@
     private async Task OnLogin() {
         errorMessage = "";
         if (UserLogin?.Username == "admin" && UserLogin?.Password == "admin") {
-            await sessionStorage.SetAsync("user", "admin");
+            await localStorage.SetAsync("user", "admin");
             Navigation.NavigateTo("/");
         }
         else {

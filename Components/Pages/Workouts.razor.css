@@ -1,0 +1,21 @@
+h1 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+form {
+  margin: 30px auto;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, auto);
+  width: min-content;
+}
+
+form p,
+form h6 {
+  margin-right: auto;
+  text-wrap: wrap;
+}
+
+input[type="number"] {
+  width: 50px;
+}
