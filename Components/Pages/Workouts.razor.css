@@ -6,7 +6,7 @@ form {
   margin: 30px auto;
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(2, auto);
   width: min-content;
 }
 

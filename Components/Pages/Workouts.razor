@@ -1,19 +1,15 @@
 @page "/workouts"
 @using HAOS.Models.Training
 
-<PageTitle>Workouts</PageTitle>
+<PageTitle>Exercises</PageTitle>
 
 <h1>Exercises</h1>
 
 <form @formname="workoutForm" @onsubmit="OnAddWorkout" method="post">
     <h6>Label</h6>
-    <h6>Reps</h6>
-    <h6>Sets</h6>
-    <h6>Weight</h6>
-    <p><input @bind-value="_newWorkout!.Label" required type="text"/></p>
-    <p><input @bind-value="_newWorkout!.RecommendedReps" min="1" max="99" required type="number"/></p>
-    <p><input @bind-value="_newWorkout!.RecommendedSets" min="1" max="99" required type="number"/></p>
-    <p><input @bind-value="_newWorkout!.RecommendedWeight" min="1" max="999" required type="number"/></p>
+    <h6>Demo URL</h6>
+    <p><input @bind-value="_newWorkout!.Name" required type="text"/></p>
+    <p><input @bind-value="_newWorkout!.DemoUrl" required type="text"/></p>
     <p><button type="submit">Add Exercise</button></p>
 </form>
 
@@ -27,10 +23,8 @@ else
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Label</th>
-                <th aria-label="Recommended Reps">Rec # of Reps</th>
-                <th aria-label="Recommended Sets">Rec # of Sets</th>
-                <th aria-label="Recommended Weight">Rec Weight</th>
+                <th>Name</th>
+                <th aria-label="Recommended Reps">Demo URL</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -39,11 +33,8 @@ else
             {
                 <tr>
                     <td>@exercise.Id</td>
-                    <td>@exercise.Label</td>
-                    <td>@exercise.RecommendedReps</td>
-                    <td>@exercise.RecommendedSets</td>
-                    <td>@exercise.RecommendedWeight</td>
-                    
+                    <td>@exercise.Name</td>
+                    <td>@exercise.DemoUrl</td>
                     <td>
                         <a class="btn" href="#"><Icon Name="IconName.PencilSquare"/></a>
                         <button class="btn" @onclick="async () => await OnDeleteWorkout(exercise.Id)"><Icon Name="IconName.XCircle"/></button>
@@ -55,13 +46,13 @@ else
 }
 
 @code {
-    private List<Workout>?  workouts {get; set;}
+    private List<Exercise>?  workouts {get; set;}
 
     [Inject]
     public required IHttpClientFactory httpClientFactory {get; set;}
 
     [SupplyParameterFromForm]
-    private Workout? _newWorkout {get; set;} = new();
+    private Exercise? _newWorkout {get; set;} = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -70,13 +61,13 @@ else
 
     private async Task LoadWorkouts() {
         var httpClient = httpClientFactory.CreateClient("api");
-        var response = await httpClient.GetAsync("/workouts/all");
-        workouts = await response.Content.ReadFromJsonAsync<List<Workout>>();
+        var response = await httpClient.GetAsync("/exercises/all");
+        workouts = await response.Content.ReadFromJsonAsync<List<Exercise>>();
     }
 
     private async Task OnAddWorkout() {
         var httpClient = httpClientFactory.CreateClient("api");
-        var response = await httpClient.PostAsJsonAsync("/workouts/add", _newWorkout);
+        var response = await httpClient.PostAsJsonAsync("/exercises/add", _newWorkout);
 
         if (response.IsSuccessStatusCode) {
             await LoadWorkouts();
@@ -85,7 +76,7 @@ else
 
     private async Task OnDeleteWorkout(int id) {
         var httpClient = httpClientFactory.CreateClient("api");
-        var response = await httpClient.DeleteAsync($"/workouts/delete/{id}");
+        var response = await httpClient.DeleteAsync($"/exercises/delete/{id}");
         if (response.IsSuccessStatusCode)
             await LoadWorkouts();
     }
