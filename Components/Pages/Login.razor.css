@@ -1,0 +1,13 @@
+.form-group {
+  padding: 10px;
+  gap: 10px;
+}
+
+.login-page {
+  margin: 0 auto;
+  width: max-content;
+}
+
+.error-message {
+  color: red;
+}

@@ -1,0 +1,68 @@
+﻿@page "/"
+@page "/programs"
+
+@using HAOS.Models.Training
+
+<PageTitle>Programs</PageTitle>
+
+<h1>Training Programs</h1>
+
+
+@if (trainingPrograms == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Subtitle</th>
+                <th>Segments</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var program in trainingPrograms ?? [])
+            {
+                <tr>
+                    <td>@program.Id</td>
+                    <td>@program.Title</td>
+                    <td>@program.Subtitle</td>
+                    <td>
+                        <ul>
+                            @foreach (var segment in program.Segments ?? [])
+                            {
+                                <li>@segment.Title</li>
+                            }
+                        </ul>
+                    </td>
+                    <td>
+                        <a class="btn" href="#"><Icon Name="IconName.PlusCircle"/> Add Segment</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<TrainingProgram>?  trainingPrograms {get; set;}
+
+    [Inject]
+    public required IHttpClientFactory httpClientFactory {get; set;}
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.GetAsync("/programs/all");
+        trainingPrograms = await response.Content.ReadFromJsonAsync<List<TrainingProgram>>();
+        
+        foreach (var program in trainingPrograms ?? []) {
+            response = await httpClient.GetAsync($"/segments/all/{program.Id}");
+            program.Segments = await response.Content.ReadFromJsonAsync<List<ProgramSegment>>();
+        }
+    }
+}

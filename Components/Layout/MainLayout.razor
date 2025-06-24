@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inherits LayoutComponentBase
+
+@code {
+    [Inject]
+    public required ProtectedLocalStorage localStorage {get; set;}
+    [Inject]
+    public required NavigationManager Navigation {get; set;}
+
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if (firstRender) {
+            var user = await localStorage.GetAsync<string>("user");
+            if (string.IsNullOrEmpty(user.Value)) {
+                Navigation.NavigateTo("/login");
+            }
+        }
+    }
+}
+
+<div class="page">
+    @if (Navigation.Uri.ToString().Contains("login") == false) {
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+    }
+    
+
+    <main>
+        <div class="top-row px-4">
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>
