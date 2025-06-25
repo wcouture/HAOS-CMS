@@ -89,5 +89,6 @@
 /Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/Components/Pages/Login.razor.rz.scp.css
 /Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/HAOS-CMS.sourcelink.json
 /Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/Components/Pages/Workouts.razor.rz.scp.css
-/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-qf32mtur05.gz
-/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-5bl4a2qvpl.gz
+/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/Components/Pages/Programs.razor.rz.scp.css
+/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-fja3hhexmi.gz
+/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-44d04wmnhf.gz

@@ -7,6 +7,8 @@
 
 <h1>Training Programs</h1>
 
+<Button @onclick="OnCreateProgram" Color="ButtonColor.Secondary" Size="ButtonSize.Small"> Add Program </Button>
+
 
 @if (trainingPrograms == null)
 {
@@ -40,29 +42,118 @@ else
                         </ul>
                     </td>
                     <td>
-                        <a class="btn" href="#"><Icon Name="IconName.PlusCircle"/> Add Segment</a>
+                        <button @onclick="async () => await OnCreateSegment(program.Id)" class="btn"><Icon Name="IconName.PlusCircle"/> Add Segment</button>
+                        <button @onclick="async () => await ConfirmDeleteProgram(program.Id)" class="btn"><Icon Name="IconName.XSquare"/> Delete</button>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+    <Modal @ref="programModal" Title="Add Program" >
+        <BodyTemplate>
+            <h5>Add Program</h5>
+            <form @formname="programForm" @onsubmit="OnAddProgram" method="post">
+                <input @bind-value="_newProgram!.Title" placeholder="Program Title" required type="text"/>
+                <input @bind-value="_newProgram!.Subtitle" placeholder="Program Subtitle" required type="text"/>
+                <button type="submit">Add Program</button>
+            </form>
+        </BodyTemplate>
+    </Modal>
+
+    <Modal @ref="segmentModal" Title="Add Segment" >
+        <BodyTemplate>
+            <h5>Add Program Segment</h5>
+            <form @formname="segmentForm" @onsubmit="OnAddSegment" method="post">
+                <input @bind-value="_newSegment!.Title" placeholder="Segment Title" required type="text"/>
+                <input @bind-value="_newSegment!.Subtitle" placeholder="Segment Description" required type="text"/>
+                <button type="submit">Add Segment</button>
+            </form>
+        </BodyTemplate>
+    </Modal>
+
+    <Modal @ref="confirmDeleteModal" Title="Delete Program" >
+        <BodyTemplate>
+            <h5>Are you sure you want to delete this program?</h5>
+            <Button @onclick="async () => await OnDeleteProgram(_selectedProgramId)" Color="ButtonColor.Danger"> Confirm Delete </Button>
+        </BodyTemplate>
+    </Modal>
 }
 
 @code {
+    private Modal programModal {get; set;} = default!;
+    private Modal segmentModal {get; set;} = default!;
+    private Modal confirmDeleteModal {get; set;} = default!;
     private List<TrainingProgram>?  trainingPrograms {get; set;}
 
     [Inject]
     public required IHttpClientFactory httpClientFactory {get; set;}
 
+    [SupplyParameterFromForm]
+    private TrainingProgram? _newProgram {get; set;} = new();
+
+    [SupplyParameterFromForm]
+    private ProgramSegment? _newSegment {get; set;} = new();
+
+    private int _selectedProgramId = 0;
+
     protected override async Task OnInitializedAsync()
     {
+        await LoadPrograms();
+    }
+
+    private async Task OnCreateProgram() {
+        await programModal.ShowAsync();
+    }
+
+    private async Task OnCreateSegment(int programId) {
+        _selectedProgramId = programId;
+        await segmentModal.ShowAsync();
+    }
+
+    private async Task LoadPrograms() {
         var httpClient = httpClientFactory.CreateClient("api");
         var response = await httpClient.GetAsync("/programs/all");
         trainingPrograms = await response.Content.ReadFromJsonAsync<List<TrainingProgram>>();
         
         foreach (var program in trainingPrograms ?? []) {
             response = await httpClient.GetAsync($"/segments/all/{program.Id}");
-            program.Segments = await response.Content.ReadFromJsonAsync<List<ProgramSegment>>();
+            program.Segments = await response.Content.ReadFromJsonAsync<List<ProgramSegment>>() ?? [];
+        }
+    }
+    
+    private async Task OnAddProgram() {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PostAsJsonAsync("/programs/add", _newProgram);
+
+        if (response.IsSuccessStatusCode) {
+            await programModal.HideAsync();
+            await LoadPrograms();
+            _newProgram = new();
+        }
+    }
+
+    private async Task OnDeleteProgram(int programId) {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.DeleteAsync($"/programs/delete/{programId}");
+        if (response.IsSuccessStatusCode) {
+            await confirmDeleteModal.HideAsync();
+            await LoadPrograms();
+        }
+    }
+
+    private async Task ConfirmDeleteProgram(int segmentId) {
+        _selectedProgramId = segmentId;
+        await confirmDeleteModal.ShowAsync();
+    }
+
+    private async Task OnAddSegment() {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PostAsJsonAsync($"/segments/add/{_selectedProgramId}", _newSegment);
+
+        if (response.IsSuccessStatusCode) {
+            await segmentModal.HideAsync();
+            await LoadPrograms();
+            _newSegment = new();
         }
     }
 }
