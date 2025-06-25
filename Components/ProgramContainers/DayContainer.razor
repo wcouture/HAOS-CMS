@@ -1,0 +1,13 @@
+@using HAOS.Models.Training
+
+@code {
+    [Parameter]
+    public required ProgramDay day {get; set;}
+}
+
+<p>&nbsp;@day.Title</p>
+<p>&nbsp;Week #@day.WeekNum</p>
+                
+@foreach (var circuit in day.Circuits ?? []) {
+    <CircuitContainer circuit="circuit"/>
+}

@@ -1,0 +1,10 @@
+@using HAOS.Models.Training
+
+@code {
+    [Parameter]
+    public required Workout workout {get; set;}
+}
+
+
+<p>&nbsp;&nbsp;&nbsp;@workout.Exercise_.Name</p>
+<p>&nbsp;&nbsp;&nbsp;@workout.Description</p>

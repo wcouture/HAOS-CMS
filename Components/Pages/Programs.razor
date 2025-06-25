@@ -30,9 +30,15 @@ else
             @foreach (var program in trainingPrograms ?? [])
             {
                 <tr>
-                    <td>@program.Id</td>
-                    <td>@program.Title</td>
-                    <td>@program.Subtitle</td>
+                    <td class="program-selection" @onclick="async () => OnSelectProgram(program.Id)">
+                        <p>@program.Id</p>
+                    </td>
+                    <td class="program-selection" @onclick="async () => OnSelectProgram(program.Id)">
+                        <p>@program.Title</p>
+                    </td>
+                    <td class="program-selection" @onclick="async () => OnSelectProgram(program.Id)">
+                        <p>@program.Subtitle</p>
+                    </td>
                     <td>
                         <ul>
                             @foreach (var segment in program.Segments ?? [])
@@ -88,6 +94,9 @@ else
     [Inject]
     public required IHttpClientFactory httpClientFactory {get; set;}
 
+    [Inject]
+    public required NavigationManager Navigation {get; set;}
+
     [SupplyParameterFromForm]
     private TrainingProgram? _newProgram {get; set;} = new();
 
@@ -119,6 +128,10 @@ else
             response = await httpClient.GetAsync($"/segments/all/{program.Id}");
             program.Segments = await response.Content.ReadFromJsonAsync<List<ProgramSegment>>() ?? [];
         }
+    }
+
+    private void OnSelectProgram(int programId) {
+        Navigation.NavigateTo($"/programs/{programId}");
     }
     
     private async Task OnAddProgram() {

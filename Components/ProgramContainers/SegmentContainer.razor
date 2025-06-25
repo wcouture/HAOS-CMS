@@ -1,0 +1,18 @@
+@using HAOS.Models.Training
+
+@code {
+    [Parameter]
+    public required ProgramSegment segment {get; set;}
+}
+
+<div class="segment">
+    <h3>@segment.Title</h3>
+    <h6>@segment.Subtitle</h6>
+    <br>
+    <p>Segment Days: <Button Color="ButtonColor.Secondary" Size="ButtonSize.ExtraSmall" Outline="true"> Add Day </Button></p>
+    
+
+    @foreach (var day in segment.Days ?? []) {
+        <DayContainer day="day"/>
+    }
+</div>

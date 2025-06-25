@@ -1,0 +1,12 @@
+@using HAOS.Models.Training
+
+@code {
+    [Parameter]
+    public required Circuit circuit {get; set;}
+}
+<p>&nbsp;&nbsp;@circuit.Description</p>
+<p>&nbsp;&nbsp;Rounds: @circuit.Rounds</p>
+
+@foreach (var workout in circuit.Workouts ?? []) {
+    <WorkoutContainer workout="workout"/>
+}

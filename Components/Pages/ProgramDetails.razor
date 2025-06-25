@@ -1,0 +1,38 @@
+@page "/programs/{programId:int}"
+
+@using HAOS.Models.Training
+@using HAOS_CMS.Components.ProgramContainers
+
+<PageTitle>Program Details</PageTitle>
+
+@if (_program == default || _program.Id == 0) {
+    <p><em>Loading...</em></p>
+}else {
+    <h1>@_program.Title</h1>
+    <p>@_program.Subtitle</p>
+
+    <div class="segments-container">
+    @foreach (var segment in _program.Segments ?? []) {
+        <SegmentContainer segment="segment"/>
+    }
+    </div>
+}
+
+
+@code {
+    [Parameter]
+    public int programId {get; set;}
+
+    private TrainingProgram _program {get; set;} = default!;
+
+    [Inject]
+    public required IHttpClientFactory httpClientFactory {get; set;}    
+
+    protected override async Task OnInitializedAsync() {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.GetAsync($"/programs/find/{programId}");
+        if (response.IsSuccessStatusCode) {
+            _program = await response.Content.ReadFromJsonAsync<TrainingProgram>() ?? new();
+        }
+    }
+}

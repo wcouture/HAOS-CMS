@@ -224,9 +224,28 @@ main[b-j4xalbmjgc] {
 .error-message[b-z7qyoctb9d] {
   color: red;
 }
+/* _content/HAOS-CMS/Components/Pages/ProgramDetails.razor.rz.scp.css */
+.segments-container[b-vrw66rd6rv] {
+  max-width: 75%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: flex-start;
+}
 /* _content/HAOS-CMS/Components/Pages/Programs.razor.rz.scp.css */
 input[b-fmhkcohcqt] {
   margin: 10px;
+}
+
+.program-selection p[b-fmhkcohcqt] {
+  transition: 0.5s ease-in-out;
+}
+.program-selection p:hover[b-fmhkcohcqt] {
+  cursor: pointer;
+  text-decoration: underline;
+  transition: 0.5s ease-in-out;
 }
 /* _content/HAOS-CMS/Components/Pages/Workouts.razor.rz.scp.css */
 h1[b-ptpj96bnxx] {
