@@ -1,5 +1,7 @@
-input[b-fmhkcohcqt] {
-  margin: 10px;
+form[b-fmhkcohcqt] {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto;
 }
 
 .program-selection p[b-fmhkcohcqt] {

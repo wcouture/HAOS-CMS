@@ -1,0 +1,36 @@
+.days-container[b-k1719y68d6] {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+h3[b-k1719y68d6] {
+  font-weight: bolder;
+  margin-bottom: 2px;
+}
+
+.delete-icon[b-k1719y68d6] {
+  color: red;
+}
+
+.segment-header[b-k1719y68d6] {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.segment-actions[b-k1719y68d6] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 10px;
+  padding: 10px;
+}

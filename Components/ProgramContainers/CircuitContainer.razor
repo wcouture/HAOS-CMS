@@ -1,12 +1,129 @@
 @using HAOS.Models.Training
+@using System.Reflection.Metadata
 
 @code {
     [Parameter]
-    public required Circuit circuit {get; set;}
-}
-<p>&nbsp;&nbsp;@circuit.Description</p>
-<p>&nbsp;&nbsp;Rounds: @circuit.Rounds</p>
+    public RenderFragment? ChildContent {get; set;}
 
-@foreach (var workout in circuit.Workouts ?? []) {
-    <WorkoutContainer workout="workout"/>
+    [Inject]
+    public required IHttpClientFactory httpClientFactory {get; set;}
+
+    [Parameter]
+    public required Circuit circuit {get; set;}
+
+    [Parameter]
+    public required int circuitIndex {get; set;}
+
+    private Workout _newWorkout {get; set;} = new() {
+        Exercise_ = null!
+    };
+
+    private Workout? _selectedWorkout {get; set;} = null;
+
+    private Exercise? _selectedExercise {get; set;} = default!;
+
+    [CascadingParameter]
+    public List<Exercise>?  exercises {get; set;}
+
+    private Modal workoutModal {get; set;} = default!;
+    private Modal deleteModal {get; set;} = default!;
+
+    private async Task OnAddWorkout() {
+        await workoutModal.ShowAsync();
+    }
+
+    private async Task OnCreateWorkout() {
+        if (_selectedExercise is null || _selectedExercise.Id == default) 
+            return;
+        _newWorkout.Exercise_ = _selectedExercise;
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PostAsJsonAsync($"/workouts/add/{circuit.Id}", _newWorkout);
+        if (response.IsSuccessStatusCode) {
+            await workoutModal.HideAsync();
+            var workoutCopy = await response.Content.ReadFromJsonAsync<Workout>();
+            circuit.Workouts.Add(workoutCopy!);
+            _newWorkout = new() {
+                Exercise_ = null!
+            };
+        }
+    }
+
+    private async Task ConfirmDeleteWorkout(Workout workout) {
+        _selectedWorkout = workout;
+        await deleteModal.ShowAsync();
+    }
+
+    private async Task OnDeleteWorkout() {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.DeleteAsync($"/workouts/delete/{circuit.Id}/{_selectedWorkout!.Id}");
+        if (response.IsSuccessStatusCode) {
+            await deleteModal.HideAsync();
+            circuit.Workouts.Remove(_selectedWorkout!);
+            _selectedWorkout = null;
+        }
+    }
 }
+
+<Modal @ref="workoutModal" Title="Add Workout" >
+    <BodyTemplate>
+        <form @formname="workoutForm" @onsubmit="OnCreateWorkout" method="post">
+            <TextAreaInput style="margin-bottom: 1rem" @bind-value="_newWorkout!.Description" placeholder="Description" required/>
+            <Dropdown Color="DropdownColor.Secondary" Label="Exercise">
+                <DropdownToggleButton>
+                    @if (_selectedExercise is not null) {
+                        @_selectedExercise.Name
+                    }
+                    else {
+                        <em>Select Exercise</em>
+                    }
+                </DropdownToggleButton>
+                <DropdownMenu>
+                    @foreach (var exercise in exercises ?? []) {
+                        <DropdownItem @onclick="() => _selectedExercise = exercise">@exercise.Name</DropdownItem>
+                    }
+                </DropdownMenu>
+            </Dropdown>
+            <Button Color="ButtonColor.Danger" Size="ButtonSize.Medium" Outline="true" type="ButtonType.Submit">Add Workout</Button>
+        </form>
+    </BodyTemplate>
+</Modal>
+
+<Modal @ref="deleteModal" Title="Delete Workout" >
+    <BodyTemplate>
+        <h5>Are you sure you want to delete this workout?</h5>
+        <Button @onclick="OnDeleteWorkout" Color="ButtonColor.Danger"> Confirm Delete </Button>
+    </BodyTemplate>
+</Modal>
+
+<div class="circuit-card">
+    <div class="circuit-header">
+        <div style="display: flex;">
+            <div class="delete-icon right-border">
+                @ChildContent
+            </div>
+            <div class="header-text">
+                <p>P.@circuitIndex | rounds: @circuit.Rounds</p>
+                <p class="circuit-description">@circuit.Description</p>
+            </div>
+        </div>
+        <div class="header-button">
+            <Button @onclick="OnAddWorkout" Color="ButtonColor.Secondary" Size="ButtonSize.ExtraSmall" Outline="true"> Add Workout </Button>
+        </div>
+    </div>
+
+    <ul class="workout-list">
+    @foreach (var workout in circuit.Workouts ?? []) {
+        <li>
+            <div class="workout-row">
+                <WorkoutContainer workout="workout"/>
+                <div class="delete-icon">
+                    <Button @onclick="async () => await ConfirmDeleteWorkout(workout)" Size="ButtonSize.ExtraSmall">
+                    <Icon Name="IconName.XSquare"/>
+                    </Button>
+                </div>
+            </div>
+        </li>
+    }
+    </ul>
+</div>
+

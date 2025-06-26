@@ -1,10 +1,18 @@
 @using HAOS.Models.Training
 
 @code {
+    [Inject]
+    public required IHttpClientFactory httpClientFactory {get; set;}
+
     [Parameter]
     public required Workout workout {get; set;}
+
 }
 
 
-<p>&nbsp;&nbsp;&nbsp;@workout.Exercise_.Name</p>
-<p>&nbsp;&nbsp;&nbsp;@workout.Description</p>
+
+
+<div class="workout-container">
+    <p class="workout-name">@workout.Exercise_.Name</p>
+    <p class="workout-description">@workout.Description</p>
+</div>

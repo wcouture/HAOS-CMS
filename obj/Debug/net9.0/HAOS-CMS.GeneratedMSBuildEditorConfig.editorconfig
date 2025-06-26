@@ -28,22 +28,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/ProgramContainers/CircuitContainer.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Qcm9ncmFtQ29udGFpbmVycy9DaXJjdWl0Q29udGFpbmVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/ProgramContainers/DayContainer.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Qcm9ncmFtQ29udGFpbmVycy9EYXlDb250YWluZXIucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/ProgramContainers/SegmentContainer.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Qcm9ncmFtQ29udGFpbmVycy9TZWdtZW50Q29udGFpbmVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/ProgramContainers/WorkoutContainer.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Qcm9ncmFtQ29udGFpbmVycy9Xb3Jrb3V0Q29udGFpbmVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Sb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -75,3 +59,19 @@ build_metadata.AdditionalFiles.CssScope = b-fmhkcohcqt
 [/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/Pages/Workouts.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Xb3Jrb3V0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-ptpj96bnxx
+
+[/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/ProgramContainers/CircuitContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Qcm9ncmFtQ29udGFpbmVycy9DaXJjdWl0Q29udGFpbmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-3drfxrckm0
+
+[/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/ProgramContainers/DayContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Qcm9ncmFtQ29udGFpbmVycy9EYXlDb250YWluZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-qggebi493l
+
+[/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/ProgramContainers/SegmentContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Qcm9ncmFtQ29udGFpbmVycy9TZWdtZW50Q29udGFpbmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-k1719y68d6
+
+[/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/ProgramContainers/WorkoutContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Qcm9ncmFtQ29udGFpbmVycy9Xb3Jrb3V0Q29udGFpbmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-17zvvcnpyb

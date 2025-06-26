@@ -226,15 +226,37 @@ main[b-j4xalbmjgc] {
 .segments-container[b-vrw66rd6rv] {
   max-width: 75%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: flex-start;
-  align-content: flex-start;
+  gap: 20px;
+}
+
+h1[b-vrw66rd6rv] {
+  font-weight: bolder;
+  margin-bottom: 2px;
+}
+
+.program-header[b-vrw66rd6rv] {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+form[b-vrw66rd6rv] {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto;
 }
 /* _content/HAOS-CMS/Components/Pages/Programs.razor.rz.scp.css */
-input[b-fmhkcohcqt] {
-  margin: 10px;
+form[b-fmhkcohcqt] {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto;
 }
 
 .program-selection p[b-fmhkcohcqt] {
@@ -266,4 +288,160 @@ form h6[b-ptpj96bnxx] {
 
 input[type="number"][b-ptpj96bnxx] {
   width: 50px;
+}
+/* _content/HAOS-CMS/Components/ProgramContainers/CircuitContainer.razor.rz.scp.css */
+.circuit-card[b-3drfxrckm0] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  min-width: 300px;
+  text-align: center;
+  box-shadow: 1px 1px 5px 1px #ddd;
+}
+
+.circuit-header[b-3drfxrckm0] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header-text[b-3drfxrckm0] {
+  padding-bottom: 5px;
+  text-align: start;
+  font-weight: bold;
+  font-size: 11pt;
+}
+.header-text p[b-3drfxrckm0] {
+  margin: 0;
+}
+
+.circuit-description[b-3drfxrckm0] {
+  font-size: 8pt;
+  font-weight: normal;
+}
+
+.workout-list[b-3drfxrckm0] {
+  padding-top: 10px;
+  align-items: center;
+  list-style-type: disc;
+}
+
+.workout-row[b-3drfxrckm0] {
+  list-style: disc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-icon[b-3drfxrckm0] {
+  color: red;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.right-border[b-3drfxrckm0] {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 6px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* _content/HAOS-CMS/Components/ProgramContainers/DayContainer.razor.rz.scp.css */
+.day-card[b-qggebi493l] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  min-width: 300px;
+  text-align: center;
+}
+
+.day-header[b-qggebi493l] {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.day-header p[b-qggebi493l] {
+  margin: 0;
+}
+
+.day-head-container[b-qggebi493l] {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.form-inputs[b-qggebi493l] {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-bottom: 15px;
+}
+
+label[b-qggebi493l] {
+  padding-top: 5px;
+}
+
+em[b-qggebi493l] {
+  font-size: 10pt;
+}
+/* _content/HAOS-CMS/Components/ProgramContainers/SegmentContainer.razor.rz.scp.css */
+.days-container[b-k1719y68d6] {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+h3[b-k1719y68d6] {
+  font-weight: bolder;
+  margin-bottom: 2px;
+}
+
+.delete-icon[b-k1719y68d6] {
+  color: red;
+}
+
+.segment-header[b-k1719y68d6] {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.segment-actions[b-k1719y68d6] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 10px;
+  padding: 10px;
+}
+/* _content/HAOS-CMS/Components/ProgramContainers/WorkoutContainer.razor.rz.scp.css */
+.workout-container p[b-17zvvcnpyb] {
+  margin: 0;
+}
+.workout-container[b-17zvvcnpyb] {
+  text-align: start;
+}
+
+.workout-name[b-17zvvcnpyb] {
+  font-weight: bold;
+  font-size: 10pt;
+}
+
+.workout-description[b-17zvvcnpyb] {
+  font-size: 8pt;
 }

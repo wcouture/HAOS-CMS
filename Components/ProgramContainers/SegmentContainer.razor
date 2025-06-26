@@ -3,16 +3,98 @@
 @code {
     [Parameter]
     public required ProgramSegment segment {get; set;}
+
+    [Parameter]
+    public RenderFragment? ChildContent {get; set;}
+
+    [SupplyParameterFromForm]
+    private ProgramDay? _newDay {get; set;} = new();
+
+    [Inject]
+    public required IHttpClientFactory httpClientFactory {get; set;}
+
+    private Modal dayModal {get; set;} = default!;
+    private Modal deleteModal {get; set;} = default!;
+
+    private ProgramDay? _selectedDay {get; set;} = null!;
+
+    private async Task OnAddDay() {
+        await dayModal.ShowAsync();
+    }
+
+    private async Task OnCreateDay() {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PostAsJsonAsync($"/days/add/{segment.Id}", _newDay);
+        if (response.IsSuccessStatusCode) {
+            await dayModal.HideAsync();
+            var dayCopy = await response.Content.ReadFromJsonAsync<ProgramDay>();
+            segment.Days!.Add(dayCopy!);
+            _newDay = new();
+        }
+    }
+
+    private async Task ConfirmDeleteDay(ProgramDay day) {
+        _selectedDay = day;
+        await deleteModal.ShowAsync();
+    }
+    private async Task OnDeleteDay() {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.DeleteAsync($"/days/delete/{segment.Id}/{_selectedDay!.Id}");
+        if (response.IsSuccessStatusCode) {
+            await deleteModal.HideAsync();
+            segment.Days!.Remove(_selectedDay);
+            _selectedDay = null;
+        }
+    }
 }
 
-<div class="segment">
-    <h3>@segment.Title</h3>
-    <h6>@segment.Subtitle</h6>
-    <br>
-    <p>Segment Days: <Button Color="ButtonColor.Secondary" Size="ButtonSize.ExtraSmall" Outline="true"> Add Day </Button></p>
-    
+<Modal @ref="dayModal" Title="Add Day" >
+    <BodyTemplate>
+        <form @formname="dayForm" @onsubmit="OnCreateDay" method="post">
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 10px; row-gap: 5px; padding-bottom: 10px">
+                <label for="day-title">Title</label>
+                <label for="day-week">Week #</label>
+                <TextInput name="day-title" @bind-value="_newDay!.Title" placeholder="Day Title" required/>
+                <NumberInput name="day-week" @bind-value="_newDay!.WeekNum" placeholder="Week #" required/>
+            </div>
+            
+            <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Add Day</Button>
+        </form>
+    </BodyTemplate>
+</Modal>
 
-    @foreach (var day in segment.Days ?? []) {
-        <DayContainer day="day"/>
-    }
+<Modal @ref="deleteModal" Title="Delete Day" >
+    <BodyTemplate>
+        <h6>Are you sure you want to delete this day?</h6>
+        <Button @onclick="OnDeleteDay" Color="ButtonColor.Danger"> Confirm Delete </Button>
+    </BodyTemplate>
+</Modal>
+
+<div class="segment">
+    <div class="segment-header">
+        <div class="segment-title">
+            <h3>@segment.Title</h3>
+            <p><i>@segment.Subtitle</i></p>
+        </div>
+        <div class="segment-actions">
+            <div><Button @onclick="OnAddDay" Color="ButtonColor.Secondary" Size="ButtonSize.ExtraSmall" Outline="true"> Add Day </Button></div>
+            @ChildContent
+        </div>
+    </div>
+    
+    
+    
+    <div class="days-container">
+        @foreach (var day in segment.Days ?? []) {
+            <DayContainer day="day">
+                <div class="delete-icon">
+                    <Button @onclick="async () => await ConfirmDeleteDay(day)" Size="ButtonSize.ExtraSmall">
+                        <Icon Name="IconName.XSquare"/>
+                    </Button>
+                </div>
+            </DayContainer>
+        }
+    </div>
+    
 </div>

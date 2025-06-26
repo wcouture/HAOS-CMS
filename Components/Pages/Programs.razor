@@ -22,7 +22,6 @@ else
                 <th>ID</th>
                 <th>Title</th>
                 <th>Subtitle</th>
-                <th>Segments</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -40,55 +39,47 @@ else
                         <p>@program.Subtitle</p>
                     </td>
                     <td>
-                        <ul>
-                            @foreach (var segment in program.Segments ?? [])
-                            {
-                                <li>@segment.Title</li>
-                            }
-                        </ul>
-                    </td>
-                    <td>
-                        <button @onclick="async () => await OnCreateSegment(program.Id)" class="btn"><Icon Name="IconName.PlusCircle"/> Add Segment</button>
+                        <button @onclick="async () => await OnEditProgram(program)" class="btn"><Icon Name="IconName.PencilSquare"/> Edit</button>
                         <button @onclick="async () => await ConfirmDeleteProgram(program.Id)" class="btn"><Icon Name="IconName.XSquare"/> Delete</button>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-    <Modal @ref="programModal" Title="Add Program" >
+    <Modal @ref="programModal" Title="Create a Training Program" >
         <BodyTemplate>
-            <h5>Add Program</h5>
             <form @formname="programForm" @onsubmit="OnAddProgram" method="post">
-                <input @bind-value="_newProgram!.Title" placeholder="Program Title" required type="text"/>
-                <input @bind-value="_newProgram!.Subtitle" placeholder="Program Subtitle" required type="text"/>
-                <button type="submit">Add Program</button>
-            </form>
-        </BodyTemplate>
-    </Modal>
-
-    <Modal @ref="segmentModal" Title="Add Segment" >
-        <BodyTemplate>
-            <h5>Add Program Segment</h5>
-            <form @formname="segmentForm" @onsubmit="OnAddSegment" method="post">
-                <input @bind-value="_newSegment!.Title" placeholder="Segment Title" required type="text"/>
-                <input @bind-value="_newSegment!.Subtitle" placeholder="Segment Description" required type="text"/>
-                <button type="submit">Add Segment</button>
+                <TextInput @bind-value="_newProgram!.Title" placeholder="Program Title" required type="text"/>
+                <TextInput @bind-value="_newProgram!.Subtitle" placeholder="Program Subtitle" required type="text"/>
+                <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Add Program</Button>
             </form>
         </BodyTemplate>
     </Modal>
 
     <Modal @ref="confirmDeleteModal" Title="Delete Program" >
         <BodyTemplate>
-            <h5>Are you sure you want to delete this program?</h5>
+            <h6>Are you sure you want to delete this program?</h6>
             <Button @onclick="async () => await OnDeleteProgram(_selectedProgramId)" Color="ButtonColor.Danger"> Confirm Delete </Button>
         </BodyTemplate>
+    </Modal>
+
+    <Modal @ref="editModal" Title="Edit Program">
+        <BodyTemplate>
+            <form @formname="programEditForm" @onsubmit="OnUpdateProgram" method="post">
+                <TextInput @bind-value="_selectedProgram.Title" placeholder="Program Title" required type="text"/>
+                <TextInput @bind-value="_selectedProgram.Subtitle" placeholder="Program Subtitle" required type="text"/>
+                <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Update Program</Button>
+            </form>
+        </BodyTemplate>
+         
     </Modal>
 }
 
 @code {
     private Modal programModal {get; set;} = default!;
-    private Modal segmentModal {get; set;} = default!;
     private Modal confirmDeleteModal {get; set;} = default!;
+    private Modal editModal {get; set;} = default!;
+
     private List<TrainingProgram>?  trainingPrograms {get; set;}
 
     [Inject]
@@ -100,10 +91,8 @@ else
     [SupplyParameterFromForm]
     private TrainingProgram? _newProgram {get; set;} = new();
 
-    [SupplyParameterFromForm]
-    private ProgramSegment? _newSegment {get; set;} = new();
-
     private int _selectedProgramId = 0;
+    private TrainingProgram _selectedProgram {get; set;} = default!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -112,11 +101,6 @@ else
 
     private async Task OnCreateProgram() {
         await programModal.ShowAsync();
-    }
-
-    private async Task OnCreateSegment(int programId) {
-        _selectedProgramId = programId;
-        await segmentModal.ShowAsync();
     }
 
     private async Task LoadPrograms() {
@@ -154,19 +138,22 @@ else
         }
     }
 
-    private async Task ConfirmDeleteProgram(int segmentId) {
-        _selectedProgramId = segmentId;
+    private async Task ConfirmDeleteProgram(int programId) {
+        _selectedProgramId = programId;
         await confirmDeleteModal.ShowAsync();
     }
 
-    private async Task OnAddSegment() {
-        var httpClient = httpClientFactory.CreateClient("api");
-        var response = await httpClient.PostAsJsonAsync($"/segments/add/{_selectedProgramId}", _newSegment);
+    private async Task OnEditProgram(TrainingProgram program) {
+        _selectedProgram = program;
+        await editModal.ShowAsync();
+    }
 
+    private async Task OnUpdateProgram() {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PutAsJsonAsync($"/programs/update/{_selectedProgram.Id}", _selectedProgram);
         if (response.IsSuccessStatusCode) {
-            await segmentModal.HideAsync();
+            await editModal.HideAsync();
             await LoadPrograms();
-            _newSegment = new();
-        }
+        }   
     }
 }

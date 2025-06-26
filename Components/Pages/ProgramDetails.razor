@@ -8,15 +8,50 @@
 @if (_program == default || _program.Id == 0) {
     <p><em>Loading...</em></p>
 }else {
-    <h1>@_program.Title</h1>
-    <p>@_program.Subtitle</p>
+    <div class="program-header">
+        <div class="program-title">
+            <h1>@_program.Title</h1>
+            <p><i>@_program.Subtitle</i></p>
+        </div>
+        <div class="program-actions">
+            <Button @onclick="OnAddSegment" Color="ButtonColor.Secondary" Size="ButtonSize.Small" Outline="true"> Add Segment </Button>
+        </div>
+    </div>
+    
 
     <div class="segments-container">
+    <CascadingValue Value="exercises">
     @foreach (var segment in _program.Segments ?? []) {
-        <SegmentContainer segment="segment"/>
+        <SegmentContainer segment="segment">
+            <div class="delete-icon">
+                <Button @onclick="async () => await ConfirmDeleteSegment(segment)" Color="ButtonColor.Danger" Outline="true" Size="ButtonSize.ExtraSmall">
+                    Delete Segment 
+                </Button>
+            </div>
+        </SegmentContainer>
     }
+    </CascadingValue>
     </div>
 }
+
+<Modal @ref="deleteModal" Title="Delete Segment" >
+    <BodyTemplate>
+        <h6>Are you sure you want to delete this segment?</h6>
+        <Button @onclick="OnDeleteSegment" Color="ButtonColor.Danger"> Confirm Delete </Button>
+    </BodyTemplate>
+</Modal>
+
+<Modal @ref="addSegmentModal" Title="Create a Program Segment">
+    <BodyTemplate>
+        <form>
+            <label>Title</label>
+            <TextInput @bind-value="_newSegment!.Title" placeholder="Segment Title" required type="text"/>
+            <label>Description</label>
+            <TextInput @bind-value="_newSegment!.Subtitle" placeholder="Segment Description" required type="text"/>
+            <Button @onclick="OnCreateSegment" type="ButtonType.Submit" Color="ButtonColor.Danger">Add Segment</Button>
+        </form>
+    </BodyTemplate>
+</Modal>
 
 
 @code {
@@ -24,6 +59,13 @@
     public int programId {get; set;}
 
     private TrainingProgram _program {get; set;} = default!;
+    private ProgramSegment? _selectedSegment {get; set;} = null;
+    private ProgramSegment? _newSegment {get; set;} = new();
+
+    private List<Exercise>?  exercises {get; set;}
+
+    private Modal deleteModal {get; set;} = default!;
+    private Modal addSegmentModal {get; set;} = default!;
 
     [Inject]
     public required IHttpClientFactory httpClientFactory {get; set;}    
@@ -33,6 +75,41 @@
         var response = await httpClient.GetAsync($"/programs/find/{programId}");
         if (response.IsSuccessStatusCode) {
             _program = await response.Content.ReadFromJsonAsync<TrainingProgram>() ?? new();
+        }
+
+        response = await httpClient.GetAsync($"/exercises/all");
+        if (response.IsSuccessStatusCode)
+            exercises = await response.Content.ReadFromJsonAsync<List<Exercise>>();
+    }
+
+    private async Task OnAddSegment() {
+        await addSegmentModal.ShowAsync();
+    }
+
+    private async Task OnCreateSegment() {
+        _newSegment!.ProgramId = _program.Id;
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PostAsJsonAsync($"/segments/add/{_program.Id}", _newSegment);
+        if (response.IsSuccessStatusCode) {
+            await addSegmentModal.HideAsync();
+            var segmentCopy = await response.Content.ReadFromJsonAsync<ProgramSegment>();
+            _program.Segments!.Add(segmentCopy!);
+            _newSegment = new();
+        }
+    }
+
+    private async Task ConfirmDeleteSegment(ProgramSegment segment) {
+        _selectedSegment = segment;
+        await deleteModal.ShowAsync();
+    }
+
+    private async Task OnDeleteSegment() {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.DeleteAsync($"/segments/delete/{_program.Id}/{_selectedSegment!.Id}");
+        if (response.IsSuccessStatusCode) {
+            await deleteModal.HideAsync();
+            _program.Segments!.Remove(_selectedSegment);
+            _selectedSegment = null;
         }
     }
 }

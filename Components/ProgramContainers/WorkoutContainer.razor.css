@@ -1,0 +1,15 @@
+.workout-container p {
+  margin: 0;
+}
+.workout-container {
+  text-align: start;
+}
+
+.workout-name {
+  font-weight: bold;
+  font-size: 10pt;
+}
+
+.workout-description {
+  font-size: 8pt;
+}

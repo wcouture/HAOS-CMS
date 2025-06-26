@@ -1,19 +1,22 @@
-.segments-container {
-  max-width: 75%;
+.days-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 20px;
 }
 
-h1 {
+h3 {
   font-weight: bolder;
   margin-bottom: 2px;
 }
 
-.program-header {
+.delete-icon {
+  color: red;
+}
+
+.segment-header {
   display: flex;
   justify-content: start;
   align-items: center;
@@ -22,8 +25,12 @@ h1 {
   margin-bottom: 15px;
 }
 
-form {
-  display: grid;
+.segment-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
   gap: 10px;
-  grid-template-columns: auto;
+  padding: 10px;
 }

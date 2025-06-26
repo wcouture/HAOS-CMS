@@ -1,0 +1,61 @@
+.circuit-card[b-3drfxrckm0] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  min-width: 300px;
+  text-align: center;
+  box-shadow: 1px 1px 5px 1px #ddd;
+}
+
+.circuit-header[b-3drfxrckm0] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header-text[b-3drfxrckm0] {
+  padding-bottom: 5px;
+  text-align: start;
+  font-weight: bold;
+  font-size: 11pt;
+}
+.header-text p[b-3drfxrckm0] {
+  margin: 0;
+}
+
+.circuit-description[b-3drfxrckm0] {
+  font-size: 8pt;
+  font-weight: normal;
+}
+
+.workout-list[b-3drfxrckm0] {
+  padding-top: 10px;
+  align-items: center;
+  list-style-type: disc;
+}
+
+.workout-row[b-3drfxrckm0] {
+  list-style: disc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-icon[b-3drfxrckm0] {
+  color: red;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.right-border[b-3drfxrckm0] {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 6px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
