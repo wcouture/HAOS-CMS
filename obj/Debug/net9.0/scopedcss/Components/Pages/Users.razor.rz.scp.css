@@ -1,0 +1,19 @@
+.user-card-list[b-ngxviuapd0] {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+form[b-ngxviuapd0] {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto;
+}
+
+.delete-icon[b-ngxviuapd0] {
+  color: red;
+  align-self: flex-end;
+}

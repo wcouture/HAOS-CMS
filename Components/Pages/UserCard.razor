@@ -1,0 +1,25 @@
+@using HAOS.Models.User
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public required UserAccount user { get; set; }
+}
+
+<div class="card-container">
+    @ChildContent
+    <div class="card-header">
+        <h5 class="card-title">@user.FirstName @user.LastName</h5>
+        <p class="card-subtitle mb-2 text-muted">@user.Email</p>
+    </div>
+    <div class="=card-body">
+        <p class="card-text"><strong>Role:</strong> @user.UserType</p>
+        <p class="card-text"><strong>Subscribed Programs:</strong></p>
+        <ul>
+        @foreach (var programId in user.SubscribedPrograms ?? []) {
+            <li><p class="card-text">@programId</p></li>
+        }
+        </ul>
+    </div>
+</div>

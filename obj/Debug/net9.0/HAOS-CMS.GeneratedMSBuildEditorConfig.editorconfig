@@ -56,6 +56,14 @@ build_metadata.AdditionalFiles.CssScope = b-vrw66rd6rv
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Qcm9ncmFtcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-fmhkcohcqt
 
+[/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/Pages/UserCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Vc2VyQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-xzcvcqf2jq
+
+[/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/Pages/Users.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Vc2Vycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-ngxviuapd0
+
 [/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/Components/Pages/Workouts.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Xb3Jrb3V0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-ptpj96bnxx

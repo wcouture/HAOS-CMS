@@ -269,6 +269,50 @@ form[b-fmhkcohcqt] {
   text-decoration: underline;
   transition: 0.5s ease-in-out;
 }
+/* _content/HAOS-CMS/Components/Pages/UserCard.razor.rz.scp.css */
+.card-container[b-xzcvcqf2jq] {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: max-content;
+  text-align: center;
+}
+
+.card-header[b-xzcvcqf2jq] {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.card-text[b-xzcvcqf2jq] {
+  font-size: 11pt;
+}
+/* _content/HAOS-CMS/Components/Pages/Users.razor.rz.scp.css */
+.user-card-list[b-ngxviuapd0] {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+form[b-ngxviuapd0] {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto;
+}
+
+.delete-icon[b-ngxviuapd0] {
+  color: red;
+  align-self: flex-end;
+}
 /* _content/HAOS-CMS/Components/Pages/Workouts.razor.rz.scp.css */
 h1[b-ptpj96bnxx] {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);

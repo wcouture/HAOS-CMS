@@ -95,5 +95,7 @@
 /Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/Components/ProgramContainers/DayContainer.razor.rz.scp.css
 /Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/Components/ProgramContainers/CircuitContainer.razor.rz.scp.css
 /Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/Components/ProgramContainers/WorkoutContainer.razor.rz.scp.css
-/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-j60mzk4ge8.gz
-/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-z8ywqhfc08.gz
+/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/Components/Pages/UserCard.razor.rz.scp.css
+/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/scopedcss/Components/Pages/Users.razor.rz.scp.css
+/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/logbmhmshk-qx5yjsfa4o.gz
+/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/Debug/net9.0/compressed/ql6rxkbv99-540rst79sf.gz

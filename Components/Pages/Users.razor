@@ -1,0 +1,107 @@
+@page "/users"
+@using HAOS.Models.User
+
+@code {
+    [Inject] 
+    public required IHttpClientFactory HttpClientFactory { get; set; }
+
+    [SupplyParameterFromForm]
+    public UserAccount? user { get; set; } = new();
+
+    private Modal createUserModal { get; set; } = default!;
+    private Modal confirmDeleteModal {get; set;} = default!;
+
+    private List<UserAccount>? users { get; set; } = new();
+    private UserAccount _selectedAccount {get; set;} = null!;
+
+    protected override async Task OnInitializedAsync() {
+        var httpClient = HttpClientFactory.CreateClient("api");
+        var response = await httpClient.GetAsync("/user/all");
+        if (response.IsSuccessStatusCode)
+            users = await response.Content.ReadFromJsonAsync<List<UserAccount>>();
+    }
+
+    private async Task OnAddUser() {
+        await createUserModal.ShowAsync();
+    }
+
+    private async Task OnCreateUser() {
+        var httpClient = HttpClientFactory.CreateClient("api");
+        var response = await httpClient.PostAsJsonAsync("/user/register", user);
+        if (response.IsSuccessStatusCode) {
+            await createUserModal.HideAsync();
+            var newUser = await response.Content.ReadFromJsonAsync<UserAccount>();
+            users?.Add(newUser!);
+            user = new();
+        }
+    }
+
+    private async Task OnConfirmDeleteUser(UserAccount user) {
+        _selectedAccount = user;
+        await confirmDeleteModal.ShowAsync();
+    }
+
+    private async Task OnDeleteUser () {
+        var httpClient = HttpClientFactory.CreateClient("api");
+        var response = await httpClient.DeleteAsync($"/user/delete/{_selectedAccount.Id}");
+        if (response.IsSuccessStatusCode) {
+            await confirmDeleteModal.HideAsync();
+            users?.Remove(_selectedAccount);
+            _selectedAccount = null!;
+        }
+    }
+
+}
+
+<PageTitle>Users</PageTitle>
+
+<h1>Users &nbsp;<Button @onclick="OnAddUser" Color="ButtonColor.Secondary" Size="ButtonSize.ExtraSmall" Outline> Add User </Button></h1>
+
+
+<div class="user-card-list">
+    @foreach (var user in users ?? []) {
+        <UserCard user="user">
+            <div class="delete-icon">
+                <Button @onclick="() => OnConfirmDeleteUser(user)" Size="ButtonSize.ExtraSmall"><Icon Name="IconName.XSquare"/> </Button>
+            </div>
+        </UserCard>
+    }
+</div>
+
+<Modal @ref="createUserModal" Title="Create a User">
+    <BodyTemplate>
+        <form @formname="userForm" @onsubmit="OnCreateUser" method="post">
+            <label>Email</label>
+            <TextInput placeholder="Email" @bind-value="user!.Email" required type="email"/>
+            <label>First Name</label>
+            <TextInput placeholder="First Name" @bind-value="user!.FirstName" required type="text"/>
+            <label>Last Name</label>
+            <TextInput placeholder="Last Name" @bind-value="user!.LastName" required type="text"/>
+            <label>Password</label>
+            <TextInput placeholder="Password" @bind-value="user!.Password" required type="password"/>
+            <label>Role</label>
+            <Dropdown Color="DropdownColor.Secondary" aria-label="=" Label="Role">
+                <DropdownToggleButton>
+                    @if (user.UserType != 0) {
+                        @user.UserType
+                    } else {
+                        <em>Select Role</em>
+                    }
+                </DropdownToggleButton>
+                <DropdownMenu>
+                    <DropdownItem @onclick="() => user!.UserType = UserType.Admin">Admin</DropdownItem>
+                    <DropdownItem @onclick="() => user!.UserType = UserType.User">User</DropdownItem>
+                </DropdownMenu>
+            </Dropdown>
+            <Button type="ButtonType.Submit" Color="ButtonColor.Danger" Size="ButtonSize.Medium" Outline> Create User </Button>
+        </form>
+    </BodyTemplate>
+</Modal>
+
+<Modal @ref="confirmDeleteModal" Title="Delete User">
+    <BodyTemplate>
+        <h6>Are you sure you want to delete this user?</h6>
+        <Button @onclick="OnDeleteUser" Color="ButtonColor.Danger"> Confirm Delete </Button>
+    </BodyTemplate>
+</Modal>
+

@@ -1,0 +1,23 @@
+.card-container[b-xzcvcqf2jq] {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: max-content;
+  text-align: center;
+}
+
+.card-header[b-xzcvcqf2jq] {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.card-text[b-xzcvcqf2jq] {
+  font-size: 11pt;
+}
