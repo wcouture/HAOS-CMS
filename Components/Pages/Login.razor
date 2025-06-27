@@ -1,4 +1,5 @@
 @page "/login"
+@using HAOS.Models.User
 @using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
 
 <PageTitle>Login</PageTitle>
@@ -10,8 +11,8 @@
     <div>
         <form class="login-form" @formname="loginForm" @onsubmit="OnLogin" method="post">
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" @bind-value="UserLogin!.Username" />
+                <label for="username">Email</label>
+                <input type="text" name="username" id="username" @bind-value="UserLogin!.Email" />
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -26,13 +27,11 @@
 </div>
 
 @code {
-    public class LoginModel {
-        public string? Username {get; set;}
-        public string? Password {get; set;}
-    }
 
     [Inject]
     public required ProtectedLocalStorage localStorage {get; set;}
+    [Inject]
+    public required IHttpClientFactory httpClientFactory {get; set;}
     [Inject]
     public required NavigationManager Navigation {get; set;}
 
@@ -40,13 +39,23 @@
     private string? errorMessage {get; set;}
 
     [SupplyParameterFromForm]
-    public LoginModel? UserLogin {get; set;} = new();
+    public UserAccount? UserLogin {get; set;} = new();
 
     private async Task OnLogin() {
         errorMessage = "";
-        if (UserLogin?.Username == "admin" && UserLogin?.Password == "admin") {
-            await localStorage.SetAsync("user", "admin");
-            Navigation.NavigateTo("/");
+
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PostAsJsonAsync("/user/login", UserLogin);
+        if (response.IsSuccessStatusCode) {
+            var user = await response.Content.ReadFromJsonAsync<UserAccount>();
+            if (user!.UserType == UserType.Admin) {
+                await localStorage.SetAsync("user", UserLogin!.Email!);
+                Navigation.NavigateTo("/");
+            }
+            else {
+                errorMessage = "You are not an admin";
+            }
+            
         }
         else {
             errorMessage = "Invalid username or password";
