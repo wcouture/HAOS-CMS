@@ -9,6 +9,7 @@
 
     [Parameter]
     public required ProgramDay day {get; set;}
+    private ProgramDay _editDay {get; set;} = new();
 
     [SupplyParameterFromForm]
     private Circuit? _newCircuit {get; set;} = new();
@@ -18,6 +19,7 @@
 
     private Modal circuitModal {get; set;} = default!;
     private Modal deleteModal {get; set;} = default!;
+    private Modal editDayModal {get; set;} = default!;
 
     private async Task OnAddCircuit() {
         await circuitModal.ShowAsync();
@@ -48,6 +50,23 @@
             _selectedCircuit = null;
         }
     }
+
+    private async Task OnEditDay() {
+        _editDay.Title = day.Title;
+        _editDay.WeekNum = day.WeekNum;
+        await editDayModal.ShowAsync();
+    }
+
+    private async Task OnUpdateDay() {
+        _editDay.Id = day.Id;
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PutAsJsonAsync($"/days/update/{day.Id}", _editDay);
+        if (response.IsSuccessStatusCode) {
+            day.Title = _editDay.Title;
+            day.WeekNum = _editDay.WeekNum;
+            await editDayModal.HideAsync();
+        }
+    }
 }
 
 <Modal @ref="circuitModal" Title="Add Circuit">
@@ -71,10 +90,23 @@
     </BodyTemplate>
 </Modal>
 
+<Modal @ref="editDayModal" Title="Edit Day">
+    <BodyTemplate>
+        <form @formname="dayEditForm" @onsubmit="OnUpdateDay" method="post">
+            <TextInput @bind-value="_editDay.Title" placeholder="Day Title" required type="text"/>
+            <label>Week #</label>
+            <NumberInput @bind-value="_editDay.WeekNum" placeholder="1" required/>
+            <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Update Day</Button>
+        </form>
+        
+    </BodyTemplate>
+</Modal>
+
 <div class="day-card">
     <div class="day-head-container">
         @ChildContent 
         <p class="day-header">@day.Title <em>(Week @day.WeekNum)</em></p>
+        <div><Button @onclick="OnEditDay" Size="ButtonSize.ExtraSmall"> <Icon Name="IconName.PencilSquare"/> </Button></div>
     </div>
     
     @* Resets circuit count every render *@

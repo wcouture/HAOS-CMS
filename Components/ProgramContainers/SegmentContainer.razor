@@ -3,6 +3,7 @@
 @code {
     [Parameter]
     public required ProgramSegment segment {get; set;}
+    private ProgramSegment _editSegment {get; set;} = new();
 
     [Parameter]
     public RenderFragment? ChildContent {get; set;}
@@ -15,6 +16,7 @@
 
     private Modal dayModal {get; set;} = default!;
     private Modal deleteModal {get; set;} = default!;
+    private Modal editSegmentModal {get; set;} = default!;
 
     private ProgramDay? _selectedDay {get; set;} = null!;
 
@@ -46,7 +48,38 @@
             _selectedDay = null;
         }
     }
+
+    private async Task OnEditSegment() {
+        _editSegment.Subtitle = segment.Subtitle;
+        _editSegment.Title = segment.Title;
+        await editSegmentModal.ShowAsync();
+    }
+
+    private async Task OnUpdateSegment() {
+        _editSegment.Id = segment.Id;
+        _editSegment.ProgramId = segment.ProgramId;
+
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PutAsJsonAsync($"/segments/update/{segment.Id}", _editSegment);
+        if (response.IsSuccessStatusCode) {
+            segment.Subtitle = _editSegment.Subtitle;
+            segment.Title = _editSegment.Title;
+            await editSegmentModal.HideAsync();
+        }
+    }
 }
+
+<Modal @ref="editSegmentModal" Title="Edit Segment">
+    <BodyTemplate>
+        <form @formname="segmentEditForm" @onsubmit="OnUpdateSegment" method="post">
+            <div style="display: grid; grid-template-columns: 1fr; row-gap: 10px">
+                <TextInput @bind-value="_editSegment.Title" placeholder="Segment Title" required type="text"/>
+                <TextInput @bind-value="_editSegment.Subtitle" placeholder="Segment Description" required type="text"/>
+                <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Update Segment</Button>
+            </div>
+        </form>
+    </BodyTemplate>
+</Modal>
 
 <Modal @ref="dayModal" Title="Add Day" >
     <BodyTemplate>
@@ -78,6 +111,7 @@
             <p><i>@segment.Subtitle</i></p>
         </div>
         <div class="segment-actions">
+            <div><Button @onclick="OnEditSegment" Size="ButtonSize.ExtraSmall"> <Icon Name="IconName.PencilSquare"/> </Button></div>
             <div><Button @onclick="OnAddDay" Color="ButtonColor.Secondary" Size="ButtonSize.ExtraSmall" Outline="true"> Add Day </Button></div>
             @ChildContent
         </div>

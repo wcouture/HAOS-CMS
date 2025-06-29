@@ -295,12 +295,15 @@ form[b-fmhkcohcqt] {
 }
 /* _content/HAOS-CMS/Components/Pages/Users.razor.rz.scp.css */
 .user-card-list[b-ngxviuapd0] {
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(200px, 1fr));
+}
+.user-card-list h6[b-ngxviuapd0],
+p[b-ngxviuapd0] {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 5px;
 }
 
 form[b-ngxviuapd0] {

@@ -1,4 +1,5 @@
 @page "/users"
+@using HAOS.Models.Training
 @using HAOS.Models.User
 
 @code {
@@ -10,15 +11,17 @@
 
     private Modal createUserModal { get; set; } = default!;
     private Modal confirmDeleteModal {get; set;} = default!;
+    private Modal editModal {get; set;} = default!;
 
     private List<UserAccount>? users { get; set; } = new();
     private UserAccount _selectedAccount {get; set;} = null!;
-
     protected override async Task OnInitializedAsync() {
         var httpClient = HttpClientFactory.CreateClient("api");
         var response = await httpClient.GetAsync("/user/all");
-        if (response.IsSuccessStatusCode)
+        HashSet<string> subscriptionNames = new();
+        if (response.IsSuccessStatusCode) {
             users = await response.Content.ReadFromJsonAsync<List<UserAccount>>();
+        }    
     }
 
     private async Task OnAddUser() {
@@ -51,6 +54,19 @@
         }
     }
 
+    private async Task OnEditUser(UserAccount user) {
+        _selectedAccount = user;
+        await editModal.ShowAsync();
+    }
+
+    private async Task OnUpdateUser() {
+        var httpClient = HttpClientFactory.CreateClient("api");
+        var response = await httpClient.PutAsJsonAsync($"/user/update/{_selectedAccount.Id}", _selectedAccount);
+        if (response.IsSuccessStatusCode) {
+            await editModal.HideAsync();
+            _selectedAccount = null!;
+        }
+    }
 }
 
 <PageTitle>Users</PageTitle>
@@ -59,14 +75,59 @@
 
 
 <div class="user-card-list">
+    <h6>Email</h6>
+    <h6>First Name</h6>
+    <h6>Last Name</h6>
+    <h6>Role</h6>
+    <h6>Subscriptions</h6>
+    <h6></h6>
+
     @foreach (var user in users ?? []) {
-        <UserCard user="user">
-            <div class="delete-icon">
-                <Button @onclick="() => OnConfirmDeleteUser(user)" Size="ButtonSize.ExtraSmall"><Icon Name="IconName.XSquare"/> </Button>
-            </div>
-        </UserCard>
+        <p>@user.Email</p>
+        <p>@user.FirstName</p>
+        <p>@user.LastName</p>
+        <p>@user.UserType</p>
+        <p>
+            <ul>
+            @foreach (var program in user.SubscribedPrograms ?? []) {
+                <li>@program.Title</li>
+            }
+            </ul>
+        </p>
+        <p>
+            <Button @onclick="() => OnEditUser(user)" Color="ButtonColor.Secondary" Size="ButtonSize.ExtraSmall" Outline> Edit </Button>
+            <Button @onclick="() => OnConfirmDeleteUser(user)" Color="ButtonColor.Danger" Size="ButtonSize.ExtraSmall" Outline> Delete </Button>
+        </p>
     }
 </div>
+
+<Modal @ref="editModal" Title="Edit User">
+    <BodyTemplate>
+        <form @formname="userForm" @onsubmit="OnUpdateUser" method="post">
+            <label>Email</label>
+            <TextInput placeholder="Email" @bind-value="_selectedAccount.Email" required type="email"/>
+            <label>First Name</label>
+            <TextInput placeholder="First Name" @bind-value="_selectedAccount.FirstName" required type="text"/>
+            <label>Last Name</label>
+            <TextInput placeholder="Last Name" @bind-value="_selectedAccount.LastName" required type="text"/>
+            <label>Role</label>
+            <Dropdown Color="DropdownColor.Secondary" aria-label="=" Label="Role">
+                <DropdownToggleButton>
+                    @if (_selectedAccount.UserType != 0) {
+                        @_selectedAccount.UserType
+                    } else {
+                        <em>Select Role</em>
+                    }
+                </DropdownToggleButton>
+                <DropdownMenu>
+                    <DropdownItem @onclick="() => _selectedAccount.UserType = UserType.Admin">Admin</DropdownItem>
+                    <DropdownItem @onclick="() => _selectedAccount.UserType = UserType.User">User</DropdownItem>
+                </DropdownMenu>
+            </Dropdown>
+            <Button Color="ButtonColor.Danger" Size="ButtonSize.Medium" Outline="true" type="ButtonType.Submit">Update User</Button>
+        </form>
+    </BodyTemplate>
+</Modal>
 
 <Modal @ref="createUserModal" Title="Create a User">
     <BodyTemplate>

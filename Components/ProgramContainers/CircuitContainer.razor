@@ -10,6 +10,7 @@
 
     [Parameter]
     public required Circuit circuit {get; set;}
+    private Circuit _editCircuit {get; set;} = new();
 
     [Parameter]
     public required int circuitIndex {get; set;}
@@ -27,6 +28,7 @@
 
     private Modal workoutModal {get; set;} = default!;
     private Modal deleteModal {get; set;} = default!;
+    private Modal editCircuitModal {get; set;} = default!;
 
     private async Task OnAddWorkout() {
         await workoutModal.ShowAsync();
@@ -62,7 +64,36 @@
             _selectedWorkout = null;
         }
     }
+
+    private async Task OnEditCircuit() {
+       _editCircuit.Rounds = circuit.Rounds;
+       _editCircuit.Description = circuit.Description;
+       await editCircuitModal.ShowAsync(); 
+    }
+
+    private async Task OnUpdateCircuit() {
+        _editCircuit.Id = circuit.Id;
+        _editCircuit.ProgramDayId = circuit.ProgramDayId;
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PutAsJsonAsync($"/circuits/update/{circuit.Id}", _editCircuit);
+        if (response.IsSuccessStatusCode) {
+            circuit.Rounds = _editCircuit.Rounds;
+            circuit.Description = _editCircuit.Description;
+            await editCircuitModal.HideAsync();
+        }
+    }
 }
+ 
+<Modal @ref="editCircuitModal" Title="Edit Circuit">
+    <BodyTemplate>
+        <form @formname="circuitForm" @onsubmit="OnUpdateCircuit" method="post">
+            <TextAreaInput style="margin-bottom: 1rem" @bind-value="_editCircuit.Description" placeholder="Description" required/>
+            <label>Rounds</label>
+            <NumberInput style="margin-bottom: 1rem" @bind-value="_editCircuit.Rounds" placeholder="Rounds" required/>
+            <Button Color="ButtonColor.Danger" Size="ButtonSize.Medium" Outline="true" type="ButtonType.Submit">Update Circuit</Button>
+        </form>
+    </BodyTemplate>
+</Modal>
 
 <Modal @ref="workoutModal" Title="Add Workout" >
     <BodyTemplate>
@@ -107,6 +138,7 @@
             </div>
         </div>
         <div class="header-button">
+            <Button @onclick="OnEditCircuit" Size="ButtonSize.Small"> <Icon Name="IconName.PencilSquare"/> </Button>
             <Button @onclick="OnAddWorkout" Color="ButtonColor.Secondary" Size="ButtonSize.ExtraSmall" Outline="true"> Add Workout </Button>
         </div>
     </div>
