@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HAOS-CMS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a9d0e40c93f77ec6b79871375cd37ae3d059de44")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4947b2bac99eceea23c48b61fb1fb3135dc2f13d")]
 [assembly: System.Reflection.AssemblyProductAttribute("HAOS-CMS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HAOS-CMS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
