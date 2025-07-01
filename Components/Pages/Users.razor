@@ -235,7 +235,7 @@
 <Modal @ref="unsubscribeModal" Title="Unsubscribe User from Program">
     <BodyTemplate>
         <h2>Are you sure you want to unsubscribe this user from this program?</h2>
-        <h6>@_selectedProgram.Title</h6>
+        <h6>@_selectedProgram!.Title</h6>
         <Button @onclick="OnUnsubscribeUserFromProgram" Color="ButtonColor.Danger"> Confirm Unsubscription </Button>
     </BodyTemplate>
 </Modal>
