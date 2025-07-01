@@ -12,16 +12,27 @@
     private Modal createUserModal { get; set; } = default!;
     private Modal confirmDeleteModal {get; set;} = default!;
     private Modal editModal {get; set;} = default!;
+    private Modal subscribeModal {get; set;} = default!;
+    private Modal unsubscribeModal {get; set;} = default!;
 
     private List<UserAccount>? users { get; set; } = new();
+    private List<TrainingProgram>? programs { get; set; } = new();
     private UserAccount _selectedAccount {get; set;} = null!;
+    private TrainingProgram? _selectedProgram {get; set;} = null!;
+
+
+
     protected override async Task OnInitializedAsync() {
         var httpClient = HttpClientFactory.CreateClient("api");
         var response = await httpClient.GetAsync("/user/all");
-        HashSet<string> subscriptionNames = new();
         if (response.IsSuccessStatusCode) {
             users = await response.Content.ReadFromJsonAsync<List<UserAccount>>();
-        }    
+        }
+
+        response = await httpClient.GetAsync("/programs/all");
+        if (response.IsSuccessStatusCode) {
+            programs = await response.Content.ReadFromJsonAsync<List<TrainingProgram>>();
+        }
     }
 
     private async Task OnAddUser() {
@@ -67,6 +78,39 @@
             _selectedAccount = null!;
         }
     }
+
+    private async Task OnAddSubscription(UserAccount user) {
+        _selectedAccount = user;
+        await subscribeModal.ShowAsync();
+    }
+
+    private async Task OnSubscribeUserToProgram() {
+        var httpClient = HttpClientFactory.CreateClient("api");
+        var response = await httpClient.PostAsync($"/user/subscribe/{_selectedAccount.Id}/{_selectedProgram!.Id}", null);
+        if (response.IsSuccessStatusCode) {
+            var updatedUser = await response.Content.ReadFromJsonAsync<UserAccount>();
+            await subscribeModal.HideAsync();
+            _selectedAccount.SubscribedPrograms = updatedUser!.SubscribedPrograms;
+            _selectedAccount = null!;
+        }
+    }
+
+    private async Task OnRemoveSubscription(UserAccount user, TrainingProgram program) {
+        _selectedAccount = user;
+        _selectedProgram = program;
+        await unsubscribeModal.ShowAsync();
+    }
+
+    private async Task OnUnsubscribeUserFromProgram() {
+        var httpClient = HttpClientFactory.CreateClient("api");
+        var response = await httpClient.DeleteAsync($"/user/unsubscribe/{_selectedAccount.Id}/{_selectedProgram!.Id}");
+        if (response.IsSuccessStatusCode) {
+            var updatedUser = await response.Content.ReadFromJsonAsync<UserAccount>();
+            await unsubscribeModal.HideAsync();
+            _selectedAccount.SubscribedPrograms = updatedUser!.SubscribedPrograms;
+            _selectedAccount = null!;
+        }
+    }
 }
 
 <PageTitle>Users</PageTitle>
@@ -88,9 +132,10 @@
         <p>@user.LastName</p>
         <p>@user.UserType</p>
         <p>
+            <Button @onclick="() => OnAddSubscription(user)" Color="ButtonColor.Secondary" Size="ButtonSize.ExtraSmall" Outline> Add Subscription </Button>
             <ul>
             @foreach (var program in user.SubscribedPrograms ?? []) {
-                <li>@program.Title</li>
+                <li>@program.Title<Button @onclick="() => OnRemoveSubscription(user, program)" Size="ButtonSize.Medium"><Icon Color="IconColor.Danger" Name="IconName.X"></Icon></Button></li>
             }
             </ul>
         </p>
@@ -163,6 +208,35 @@
     <BodyTemplate>
         <h6>Are you sure you want to delete this user?</h6>
         <Button @onclick="OnDeleteUser" Color="ButtonColor.Danger"> Confirm Delete </Button>
+    </BodyTemplate>
+</Modal>
+
+<Modal @ref="subscribeModal" Title="Subscribe User to Program">
+    <BodyTemplate>
+        <Dropdown Color="DropdownColor.Secondary" aria-label="=" Label="Program">
+            <DropdownToggleButton>
+                @if (_selectedProgram is not null) {
+                    @_selectedProgram.Title
+                } else {
+                    <em>Select Program</em>
+                }
+            </DropdownToggleButton>
+            <DropdownMenu>
+                @foreach (var program in programs ?? []) {
+                    <DropdownItem @onclick="() => _selectedProgram = program">@program.Title</DropdownItem>
+                }
+            </DropdownMenu>
+        </Dropdown>
+            
+        <Button @onclick="OnSubscribeUserToProgram" Color="ButtonColor.Danger"> Confirm Subscription </Button>
+    </BodyTemplate>
+</Modal>
+
+<Modal @ref="unsubscribeModal" Title="Unsubscribe User from Program">
+    <BodyTemplate>
+        <h2>Are you sure you want to unsubscribe this user from this program?</h2>
+        <h6>@_selectedProgram.Title</h6>
+        <Button @onclick="OnUnsubscribeUserFromProgram" Color="ButtonColor.Danger"> Confirm Unsubscription </Button>
     </BodyTemplate>
 </Modal>
 
