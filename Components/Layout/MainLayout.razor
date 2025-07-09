@@ -9,8 +9,15 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender) {
         if (firstRender) {
-            var user = await localStorage.GetAsync<string>("user");
-            if (string.IsNullOrEmpty(user.Value)) {
+            try {
+                var user = await localStorage.GetAsync<string>("user");
+                if (string.IsNullOrEmpty(user.Value)) {
+                    Navigation.NavigateTo("/login");
+                }
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+                await localStorage.DeleteAsync("user");
                 Navigation.NavigateTo("/login");
             }
         }

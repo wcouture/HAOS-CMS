@@ -576,11 +576,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/HAOS-CMS.csproj",
+      "projectUniqueName": "/Users/williamcouture/Personal/HAOS/HAOS-CMS/HAOS-CMS.csproj",
       "projectName": "HAOS-CMS",
-      "projectPath": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/HAOS-CMS.csproj",
+      "projectPath": "/Users/williamcouture/Personal/HAOS/HAOS-CMS/HAOS-CMS.csproj",
       "packagesPath": "/Users/williamcouture/.nuget/packages/",
-      "outputPath": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/obj/",
+      "outputPath": "/Users/williamcouture/Personal/HAOS/HAOS-CMS/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/williamcouture/.nuget/NuGet/NuGet.Config"

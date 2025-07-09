@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QBzZJ3lSs54=",
+  "dgSpecHash": "mpsyvYVt+VM=",
   "success": true,
-  "projectFilePath": "/Users/williamcouture/Personal/HAOS-App/HAOS-CMS/HAOS-CMS.csproj",
+  "projectFilePath": "/Users/williamcouture/Personal/HAOS/HAOS-CMS/HAOS-CMS.csproj",
   "expectedPackageFiles": [
     "/Users/williamcouture/.nuget/packages/blazor.bootstrap/3.3.1/blazor.bootstrap.3.3.1.nupkg.sha512",
     "/Users/williamcouture/.nuget/packages/microsoft.aspnetcore.authorization/9.0.0/microsoft.aspnetcore.authorization.9.0.0.nupkg.sha512",

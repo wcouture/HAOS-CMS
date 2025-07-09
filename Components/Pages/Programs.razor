@@ -2,6 +2,7 @@
 @page "/programs"
 
 @using HAOS.Models.Training
+@using System.Text.Json
 
 <PageTitle>Programs</PageTitle>
 
@@ -81,8 +82,7 @@ else
     private Modal editModal {get; set;} = default!;
 
     private List<TrainingProgram>?  trainingPrograms {get; set;}
-
-    [Inject]
+[Inject]
     public required IHttpClientFactory httpClientFactory {get; set;}
 
     [Inject]

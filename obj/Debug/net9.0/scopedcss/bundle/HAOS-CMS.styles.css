@@ -322,11 +322,9 @@ h1[b-ptpj96bnxx] {
 }
 
 form[b-ptpj96bnxx] {
-  margin: 30px auto;
   display: grid;
+  grid-template-columns: auto;
   gap: 10px;
-  grid-template-columns: repeat(2, auto);
-  width: min-content;
 }
 
 form p[b-ptpj96bnxx],
