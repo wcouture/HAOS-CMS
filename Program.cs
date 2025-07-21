@@ -11,7 +11,7 @@ builder.Services.AddBlazorBootstrap();
 
 builder.Services.AddHttpClient("api", client =>
 {
-    client.BaseAddress = new Uri("http://localhost:5164/");
+    client.BaseAddress = new Uri("http://localhost:5000/");
     client.DefaultRequestHeaders.Add("Authorization", "HAOSAPIauthorizationToken");
 });
 builder.Services.AddScoped<IEncryptionService, RsaEncryptionService>();
