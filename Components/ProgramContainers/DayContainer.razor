@@ -9,10 +9,10 @@
 
     [Parameter]
     public required ProgramDay Day {get; set;}
-    private ProgramDay _editDay {get; set;} = new();
+    private ProgramDay _editDay {get; set;} = new ProgramDay();
 
     [SupplyParameterFromForm]
-    private Session? _newSession {get; set;} = new();
+    private Session? _newSession {get; set;} = new Session();
     private Session? _selectedSession {get; set;} = null;
 
     private int SessionCount {get; set;} = 0;
@@ -26,6 +26,7 @@
     }
 
     private async Task OnCreateSession() {
+        _newSession!.ProgramDayId = Day.Id;
         var httpClient = httpClientFactory.CreateClient("api");
         var response = await httpClient.PostAsJsonAsync($"/sessions/add/{Day.Id}", _newSession);
         if (response.IsSuccessStatusCode) {
@@ -112,7 +113,7 @@
     @foreach (var Session in Day.Sessions ?? []) {
         SessionCount += 1;
 
-        <SessionContainer Session="@Session" SessionIndex="@SessionCount">
+        <SessionContainer Session="@Session">
             <Button @onclick="async () => await ConfirmDeleteSession(Session)" Size="ButtonSize.ExtraSmall">
                 <Icon Name="IconName.XSquare"/>
             </Button>
