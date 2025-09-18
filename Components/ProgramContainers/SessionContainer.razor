@@ -1,0 +1,120 @@
+@using HAOS.Models.Training
+
+@code {
+    [Inject]
+    public required IHttpClientFactory httpClientFactory {get; set;}
+
+    [Parameter]
+    public RenderFragment? ChildContent {get; set;}
+
+    [Parameter]
+    public required Session session {get; set;}
+    private Session _editSession {get; set;} = new();
+
+    [SupplyParameterFromForm]
+    private Circuit? _newCircuit {get; set;} = new();
+    private Circuit? _selectedCircuit {get; set;} = null;
+
+    private int circuitCount {get; set;} = 0;
+
+    private Modal circuitModal {get; set;} = default!;
+    private Modal deleteModal {get; set;} = default!;
+    private Modal editSessionModal {get; set;} = default!;
+
+    private async Task OnAddCircuit() {
+        await circuitModal.ShowAsync();
+    }
+
+    private async Task OnCreateCircuit() {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PostAsJsonAsync($"/circuits/add/{session.Id}", _newCircuit);
+        if (response.IsSuccessStatusCode) {
+            await circuitModal.HideAsync();
+            var newCircuit = await response.Content.ReadFromJsonAsync<Circuit>();
+            session.Circuits.Add(newCircuit ?? _newCircuit!);
+            _newCircuit = new();
+        }
+    }
+
+    private async Task ConfirmDeleteCircuit(Circuit circuit) {
+        _selectedCircuit = circuit;
+        await deleteModal.ShowAsync();
+    }
+
+    private async Task OnDeleteCircuit() {
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.DeleteAsync($"/circuits/delete/{session.Id}/{_selectedCircuit!.Id}");
+        if (response.IsSuccessStatusCode) {
+            await deleteModal.HideAsync();
+            session.Circuits.Remove(_selectedCircuit);
+            _selectedCircuit = null;
+        }
+    }
+
+    private async Task OnEditSession() {
+        _editSession.Title = session.Title;
+        await editSessionModal.ShowAsync();
+    }
+
+    private async Task OnUpdateSession() {
+        _editSession.Id = session.Id;
+        var httpClient = httpClientFactory.CreateClient("api");
+        var response = await httpClient.PutAsJsonAsync($"/sessions/update/{session.Id}", _editSession);
+        if (response.IsSuccessStatusCode) {
+            session.Title = _editSession.Title;
+            await editSessionModal.HideAsync();
+        }
+    }
+}
+
+<Modal @ref="circuitModal" Title="Add Circuit">
+    <BodyTemplate>
+        <form @formname="circuitForm" @onsubmit="OnCreateCircuit" method="post">
+            <div class="form-inputs">
+                <label for="circuit-description">Description</label>
+                <TextAreaInput class="input-item" name="circuit-description" @bind-value="_newCircuit!.Description" placeholder="Circuit Description" required/>
+            </div>
+            <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Add Circuit</Button>
+        </form>
+    </BodyTemplate>
+</Modal>
+
+<Modal @ref="deleteModal" Title="Delete Circuit">
+    <BodyTemplate>
+        <h5>Are you sure you want to delete this circuit?</h5>
+        <Button @onclick="OnDeleteCircuit" Color="ButtonColor.Danger"> Confirm Delete </Button>
+    </BodyTemplate>
+</Modal>
+
+<Modal @ref="editSessionModal" Title="Edit Session">
+    <BodyTemplate>
+        <form @formname="sessionEditForm" @onsubmit="OnUpdateSession" method="post">
+            <TextInput @bind-value="_editSession.Title" placeholder="Session Title" required type="text"/>
+            <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Update Day</Button>
+        </form>
+        
+    </BodyTemplate>
+</Modal>
+
+<div class="day-card">
+    <div class="day-head-container">
+        @ChildContent 
+        <p class="day-header">@session.Title</p>
+        <div><Button @onclick="OnEditSession" Size="ButtonSize.ExtraSmall"> <Icon Name="IconName.PencilSquare"/> </Button></div>
+    </div>
+    
+    @* Resets circuit count every render *@
+    @if (circuitCount > 0) {
+        circuitCount = 0;
+    }
+    @foreach (var circuit in session.Circuits ?? []) {
+        circuitCount += 1;
+
+        <CircuitContainer circuit="@circuit" circuitIndex="@circuitCount">
+            <Button @onclick="async () => await ConfirmDeleteCircuit(circuit)" Size="ButtonSize.ExtraSmall">
+                <Icon Name="IconName.XSquare"/>
+            </Button>
+        </CircuitContainer>
+    }
+    <Button @onclick="OnAddCircuit" Color="ButtonColor.Secondary" Size="ButtonSize.ExtraSmall" Outline="true"> Add Circuit </Button>
+</div>

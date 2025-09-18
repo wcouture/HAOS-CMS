@@ -16,12 +16,14 @@
     public required int circuitIndex {get; set;}
 
     private Workout _newWorkout {get; set;} = new() {
-        Exercise_ = null!
+        Exercise_ = null!, TrackingType_ = TrackingType.Reps
     };
 
     private Workout? _selectedWorkout {get; set;} = null;
 
     private Exercise? _selectedExercise {get; set;} = default!;
+
+    private TrackingType _selectedType {get;set;} = TrackingType.Reps;
 
     [CascadingParameter]
     public List<Exercise>?  exercises {get; set;}
@@ -45,7 +47,7 @@
             var workoutCopy = await response.Content.ReadFromJsonAsync<Workout>();
             circuit.Workouts.Add(workoutCopy!);
             _newWorkout = new() {
-                Exercise_ = null!
+                Exercise_ = null!, TrackingType_ = TrackingType.Reps
             };
         }
     }
@@ -66,7 +68,6 @@
     }
 
     private async Task OnEditCircuit() {
-       _editCircuit.Rounds = circuit.Rounds;
        _editCircuit.Description = circuit.Description;
        await editCircuitModal.ShowAsync(); 
     }
@@ -77,7 +78,6 @@
         var httpClient = httpClientFactory.CreateClient("api");
         var response = await httpClient.PutAsJsonAsync($"/circuits/update/{circuit.Id}", _editCircuit);
         if (response.IsSuccessStatusCode) {
-            circuit.Rounds = _editCircuit.Rounds;
             circuit.Description = _editCircuit.Description;
             await editCircuitModal.HideAsync();
         }
@@ -88,8 +88,6 @@
     <BodyTemplate>
         <form @formname="circuitForm" @onsubmit="OnUpdateCircuit" method="post">
             <TextAreaInput style="margin-bottom: 1rem" @bind-value="_editCircuit.Description" placeholder="Description" required/>
-            <label>Rounds</label>
-            <NumberInput style="margin-bottom: 1rem" @bind-value="_editCircuit.Rounds" placeholder="Rounds" required/>
             <Button Color="ButtonColor.Danger" Size="ButtonSize.Medium" Outline="true" type="ButtonType.Submit">Update Circuit</Button>
         </form>
     </BodyTemplate>
@@ -114,6 +112,19 @@
                     }
                 </DropdownMenu>
             </Dropdown>
+            <Dropdown Color="DropdownColor.Secondary" Label="Type">
+                <DropdownToggleButton>
+                        @_selectedType
+                </DropdownToggleButton>
+                <DropdownMenu>
+                    <DropdownItem @onclick="() => _selectedType = TrackingType.Reps">For Reps</DropdownItem>
+                    <DropdownItem @onclick="() => _selectedType = TrackingType.Rounds">For Rounds</DropdownItem>
+                    <DropdownItem @onclick="() => _selectedType = TrackingType.Time">For Time</DropdownItem>
+                    <DropdownItem @onclick="() => _selectedType = TrackingType.Distance">For Distance</DropdownItem>
+                    <DropdownItem @onclick="() => _selectedType = TrackingType.Calories">For Calories</DropdownItem>
+                    <DropdownItem @onclick="() => _selectedType = TrackingType.Complete">For Completion</DropdownItem>
+                </DropdownMenu>
+            </Dropdown>
             <Button Color="ButtonColor.Danger" Size="ButtonSize.Medium" Outline="true" type="ButtonType.Submit">Add Workout</Button>
         </form>
     </BodyTemplate>
@@ -133,7 +144,6 @@
                 @ChildContent
             </div>
             <div class="header-text">
-                <p>P.@circuitIndex | rounds: @circuit.Rounds</p>
                 <p class="circuit-description">@circuit.Description</p>
             </div>
         </div>

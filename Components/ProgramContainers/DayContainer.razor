@@ -8,94 +8,90 @@
     public RenderFragment? ChildContent {get; set;}
 
     [Parameter]
-    public required ProgramDay day {get; set;}
+    public required ProgramDay Day {get; set;}
     private ProgramDay _editDay {get; set;} = new();
 
     [SupplyParameterFromForm]
-    private Circuit? _newCircuit {get; set;} = new();
-    private Circuit? _selectedCircuit {get; set;} = null;
+    private Session? _newSession {get; set;} = new();
+    private Session? _selectedSession {get; set;} = null;
 
-    private int circuitCount {get; set;} = 0;
+    private int SessionCount {get; set;} = 0;
 
-    private Modal circuitModal {get; set;} = default!;
+    private Modal SessionModal {get; set;} = default!;
     private Modal deleteModal {get; set;} = default!;
     private Modal editDayModal {get; set;} = default!;
 
-    private async Task OnAddCircuit() {
-        await circuitModal.ShowAsync();
+    private async Task OnAddSession() {
+        await SessionModal.ShowAsync();
     }
 
-    private async Task OnCreateCircuit() {
+    private async Task OnCreateSession() {
         var httpClient = httpClientFactory.CreateClient("api");
-        var response = await httpClient.PostAsJsonAsync($"/circuits/add/{day.Id}", _newCircuit);
+        var response = await httpClient.PostAsJsonAsync($"/sessions/add/{Day.Id}", _newSession);
         if (response.IsSuccessStatusCode) {
-            await circuitModal.HideAsync();
-            var newCircuit = await response.Content.ReadFromJsonAsync<Circuit>();
-            day.Circuits.Add(newCircuit ?? _newCircuit!);
-            _newCircuit = new();
+            await SessionModal.HideAsync();
+            var newSession = await response.Content.ReadFromJsonAsync<Session>();
+            Day.Sessions.Add(newSession ?? _newSession!);
+            _newSession = new();
         }
     }
 
-    private async Task ConfirmDeleteCircuit(Circuit circuit) {
-        _selectedCircuit = circuit;
+    private async Task ConfirmDeleteSession(Session Session) {
+        _selectedSession = Session;
         await deleteModal.ShowAsync();
     }
 
-    private async Task OnDeleteCircuit() {
+    private async Task OnDeleteSession() {
         var httpClient = httpClientFactory.CreateClient("api");
-        var response = await httpClient.DeleteAsync($"/circuits/delete/{day.Id}/{_selectedCircuit!.Id}");
+        var response = await httpClient.DeleteAsync($"/sessions/delete/{Day.Id}/{_selectedSession!.Id}");
         if (response.IsSuccessStatusCode) {
             await deleteModal.HideAsync();
-            day.Circuits.Remove(_selectedCircuit);
-            _selectedCircuit = null;
+            Day.Sessions.Remove(_selectedSession);
+            _selectedSession = null;
         }
     }
 
     private async Task OnEditDay() {
-        _editDay.Title = day.Title;
-        _editDay.WeekNum = day.WeekNum;
+        _editDay.Title = Day.Title;
+        _editDay.WeekNum = Day.WeekNum;
         await editDayModal.ShowAsync();
     }
 
     private async Task OnUpdateDay() {
-        _editDay.Id = day.Id;
+        _editDay.Id = Day.Id;
         var httpClient = httpClientFactory.CreateClient("api");
-        var response = await httpClient.PutAsJsonAsync($"/days/update/{day.Id}", _editDay);
+        var response = await httpClient.PutAsJsonAsync($"/days/update/{Day.Id}", _editDay);
         if (response.IsSuccessStatusCode) {
-            day.Title = _editDay.Title;
-            day.WeekNum = _editDay.WeekNum;
+            Day.Title = _editDay.Title;
+            Day.WeekNum = _editDay.WeekNum;
             await editDayModal.HideAsync();
         }
     }
 }
 
-<Modal @ref="circuitModal" Title="Add Circuit">
+<Modal @ref="SessionModal" Title="Add Session">
     <BodyTemplate>
-        <form @formname="circuitForm" @onsubmit="OnCreateCircuit" method="post">
+        <form @formname="SessionForm" @onsubmit="OnCreateSession" method="post">
             <div class="form-inputs">
-                <label for="circuit-description">Description</label>
-                <TextAreaInput class="input-item" name="circuit-description" @bind-value="_newCircuit!.Description" placeholder="Circuit Description" required/>
-                <label for="circuit-rounds">Rounds</label>
-                <NumberInput class="input-item" name="circuit-rounds" @bind-value="_newCircuit!.Rounds" placeholder="Rounds" required/>
+                <label for="Session-description">Title</label>
+                <TextAreaInput class="input-item" name="Session-description" @bind-value="_newSession!.Title" placeholder="Session Description" required/>
             </div>
-            <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Add Circuit</Button>
+            <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Add Session</Button>
         </form>
     </BodyTemplate>
 </Modal>
 
-<Modal @ref="deleteModal" Title="Delete Circuit">
+<Modal @ref="deleteModal" Title="Delete Session">
     <BodyTemplate>
-        <h5>Are you sure you want to delete this circuit?</h5>
-        <Button @onclick="OnDeleteCircuit" Color="ButtonColor.Danger"> Confirm Delete </Button>
+        <h5>Are you sure you want to delete this Session?</h5>
+        <Button @onclick="OnDeleteSession" Color="ButtonColor.Danger"> Confirm Delete </Button>
     </BodyTemplate>
 </Modal>
 
 <Modal @ref="editDayModal" Title="Edit Day">
     <BodyTemplate>
-        <form @formname="dayEditForm" @onsubmit="OnUpdateDay" method="post">
+        <form @formname="DayEditForm" @onsubmit="OnUpdateDay" method="post">
             <TextInput @bind-value="_editDay.Title" placeholder="Day Title" required type="text"/>
-            <label>Week #</label>
-            <NumberInput @bind-value="_editDay.WeekNum" placeholder="1" required/>
             <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Update Day</Button>
         </form>
         
@@ -105,22 +101,22 @@
 <div class="day-card">
     <div class="day-head-container">
         @ChildContent 
-        <p class="day-header">@day.Title <em>(Week @day.WeekNum)</em></p>
+        <p class="day-header">@Day.Title</p>
         <div><Button @onclick="OnEditDay" Size="ButtonSize.ExtraSmall"> <Icon Name="IconName.PencilSquare"/> </Button></div>
     </div>
     
-    @* Resets circuit count every render *@
-    @if (circuitCount > 0) {
-        circuitCount = 0;
+    @* Resets Session count every render *@
+    @if (SessionCount > 0) {
+        SessionCount = 0;
     }
-    @foreach (var circuit in day.Circuits ?? []) {
-        circuitCount += 1;
+    @foreach (var Session in Day.Sessions ?? []) {
+        SessionCount += 1;
 
-        <CircuitContainer circuit="@circuit" circuitIndex="@circuitCount">
-            <Button @onclick="async () => await ConfirmDeleteCircuit(circuit)" Size="ButtonSize.ExtraSmall">
+        <SessionContainer Session="@Session" SessionIndex="@SessionCount">
+            <Button @onclick="async () => await ConfirmDeleteSession(Session)" Size="ButtonSize.ExtraSmall">
                 <Icon Name="IconName.XSquare"/>
             </Button>
-        </CircuitContainer>
+        </SessionContainer>
     }
-    <Button @onclick="OnAddCircuit" Color="ButtonColor.Secondary" Size="ButtonSize.ExtraSmall" Outline="true"> Add Circuit </Button>
+    <Button @onclick="OnAddSession" Color="ButtonColor.Secondary" Size="ButtonSize.ExtraSmall" Outline="true"> Add Session </Button>
 </div>

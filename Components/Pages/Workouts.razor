@@ -12,20 +12,6 @@
         <form @formname="workoutForm" @onsubmit="OnSubmitWorkout">
             <TextInput @bind-value="_newWorkout!.Name" placeholder="Exercise Name" required type="text"/>
             <TextInput @bind-value="_newWorkout!.DemoUrl" placeholder="Demo URL" required type="text"/>
-            <Dropdown Color="DropdownColor.Secondary" Label="Type">
-                <DropdownToggleButton>
-                    @if (_selectedType is not null) {
-                        @_selectedType
-                    }
-                    else {
-                        <em>Select Type</em>
-                    }
-                </DropdownToggleButton>
-                <DropdownMenu>
-                    <DropdownItem @onclick="() => _selectedType = ExerciseType.Strength">Strength</DropdownItem>
-                    <DropdownItem @onclick="() => _selectedType = ExerciseType.Endurance">Endurance</DropdownItem>
-                </DropdownMenu>
-            </Dropdown>
             <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Add Exercise</Button>
         </form>
     </BodyTemplate>
@@ -43,7 +29,6 @@ else
                 <th>ID</th>
                 <th>Name</th>
                 <th aria-label="Recommended Reps">Demo URL</th>
-                <th>Type</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -54,7 +39,6 @@ else
                     <td>@exercise.Id</td>
                     <td>@exercise.Name</td>
                     <td>@exercise.DemoUrl</td>
-                    <td>@exercise.Type</td>
                     <td>
                         <a class="btn" href="#"><Icon Name="IconName.PencilSquare"/></a>
                         <button class="btn" @onclick="async () => await OnDeleteWorkout(exercise.Id)"><Icon Name="IconName.XCircle"/></button>
@@ -74,8 +58,6 @@ else
 
     [SupplyParameterFromForm]
     private Exercise? _newWorkout {get; set;} = new();
-    [SupplyParameterFromForm]
-    private ExerciseType? _selectedType {get; set;} = null!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -89,7 +71,6 @@ else
     }
 
     private async Task OnSubmitWorkout() {
-        _newWorkout!.Type = _selectedType ?? ExerciseType.Strength;
 
         var httpClient = httpClientFactory.CreateClient("api");
         var response = await httpClient.PostAsJsonAsync("/exercises/add", _newWorkout);

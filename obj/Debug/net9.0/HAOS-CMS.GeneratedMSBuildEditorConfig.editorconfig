@@ -9,81 +9,85 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HAOS-CMS
 build_property.RootNamespace = HAOS-CMS
-build_property.ProjectDir = /Users/williamcouture/Personal/HAOS/HAOS-CMS/
+build_property.ProjectDir = C:\Users\boxer\source\repos\DOTNET\HAOS-CMS\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/williamcouture/Personal/HAOS/HAOS-CMS
+build_property.MSBuildProjectDirectory = C:\Users\boxer\source\repos\DOTNET\HAOS-CMS
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/App.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHAucmF6b3I=
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/Pages/Error.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FcnJvci5yYXpvcg==
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/Pages/Logout.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Mb2dvdXQucmF6b3I=
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/Pages/Logout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/Routes.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Sb3V0ZXMucmF6b3I=
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/_Imports.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9fSW1wb3J0cy5yYXpvcg==
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/Layout/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTWFpbkxheW91dC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-j4xalbmjgc
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-y53e471eas
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTmF2TWVudS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-6u08ln8y91
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-udtx43wzmz
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/Pages/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Mb2dpbi5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-z7qyoctb9d
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-jxmsb4cyj4
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/Pages/ProgramDetails.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Qcm9ncmFtRGV0YWlscy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-vrw66rd6rv
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/Pages/ProgramDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcm9ncmFtRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-fkuy3n1wm6
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/Pages/Programs.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Qcm9ncmFtcy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-fmhkcohcqt
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/Pages/Programs.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcm9ncmFtcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-lg86fim9go
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/Pages/UserCard.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Vc2VyQ2FyZC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-xzcvcqf2jq
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/Pages/UserCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-eotx9ia44e
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/Pages/Users.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Vc2Vycy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-ngxviuapd0
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/Pages/Users.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2Vycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-6p34gosdg8
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/Pages/Workouts.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Xb3Jrb3V0cy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-ptpj96bnxx
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/Pages/Workouts.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXb3Jrb3V0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-11rqg2nf54
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/ProgramContainers/CircuitContainer.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Qcm9ncmFtQ29udGFpbmVycy9DaXJjdWl0Q29udGFpbmVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = b-3drfxrckm0
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/ProgramContainers/CircuitContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9ncmFtQ29udGFpbmVyc1xDaXJjdWl0Q29udGFpbmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-dx29pykgmo
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/ProgramContainers/DayContainer.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Qcm9ncmFtQ29udGFpbmVycy9EYXlDb250YWluZXIucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-qggebi493l
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/ProgramContainers/DayContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9ncmFtQ29udGFpbmVyc1xEYXlDb250YWluZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-zlzuutogxo
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/ProgramContainers/SegmentContainer.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Qcm9ncmFtQ29udGFpbmVycy9TZWdtZW50Q29udGFpbmVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = b-k1719y68d6
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/ProgramContainers/SegmentContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9ncmFtQ29udGFpbmVyc1xTZWdtZW50Q29udGFpbmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-mucjzznueu
 
-[/Users/williamcouture/Personal/HAOS/HAOS-CMS/Components/ProgramContainers/WorkoutContainer.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Qcm9ncmFtQ29udGFpbmVycy9Xb3Jrb3V0Q29udGFpbmVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = b-17zvvcnpyb
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/ProgramContainers/SessionContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9ncmFtQ29udGFpbmVyc1xTZXNzaW9uQ29udGFpbmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-bve0686th5
+
+[C:/Users/boxer/source/repos/DOTNET/HAOS-CMS/Components/ProgramContainers/WorkoutContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9ncmFtQ29udGFpbmVyc1xXb3Jrb3V0Q29udGFpbmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-i4rxv62fcl

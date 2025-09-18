@@ -1,40 +1,41 @@
-.day-card[b-qggebi493l] {
+.day-card[b-zlzuutogxo] {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
   min-width: 300px;
+  max-width: 500px;
   text-align: center;
 }
 
-.day-header[b-qggebi493l] {
+.day-header[b-zlzuutogxo] {
   width: 100%;
   text-align: center;
   font-weight: bold;
 }
 
-.day-header p[b-qggebi493l] {
+.day-header p[b-zlzuutogxo] {
   margin: 0;
 }
 
-.day-head-container[b-qggebi493l] {
+.day-head-container[b-zlzuutogxo] {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 15px;
 }
 
-.form-inputs[b-qggebi493l] {
+.form-inputs[b-zlzuutogxo] {
   display: flex;
   flex-direction: column;
   align-items: start;
   padding-bottom: 15px;
 }
 
-label[b-qggebi493l] {
+label[b-zlzuutogxo] {
   padding-top: 5px;
 }
 
-em[b-qggebi493l] {
+em[b-zlzuutogxo] {
   font-size: 10pt;
 }

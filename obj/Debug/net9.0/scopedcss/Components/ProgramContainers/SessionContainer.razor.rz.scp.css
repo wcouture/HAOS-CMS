@@ -1,0 +1,41 @@
+.day-card[b-bve0686th5] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  min-width: 300px;
+  max-width: 500px;
+  text-align: center;
+}
+
+.day-header[b-bve0686th5] {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.day-header p[b-bve0686th5] {
+  margin: 0;
+}
+
+.day-head-container[b-bve0686th5] {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.form-inputs[b-bve0686th5] {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-bottom: 15px;
+}
+
+label[b-bve0686th5] {
+  padding-top: 5px;
+}
+
+em[b-bve0686th5] {
+  font-size: 10pt;
+}

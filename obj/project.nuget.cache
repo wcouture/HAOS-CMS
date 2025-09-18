@@ -1,20 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "dNm6O85Eprg=",
-  "success": false,
-  "projectFilePath": "C:\\Users\\wpc\\HAOS\\HAOS-CMS\\HAOS-CMS.csproj",
-  "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Unable to find package Blazor.Bootstrap. No packages exist with this id in source(s): C:\\Program Files\\dotnet\\library-packs, DevExpress, DevExpress 23.1 Local, Microsoft Visual Studio Offline Packages",
-      "projectPath": "C:\\Users\\wpc\\HAOS\\HAOS-CMS\\HAOS-CMS.csproj",
-      "filePath": "C:\\Users\\wpc\\HAOS\\HAOS-CMS\\HAOS-CMS.csproj",
-      "libraryId": "Blazor.Bootstrap",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    }
-  ]
+  "dgSpecHash": "xpZ+XaApvXM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\boxer\\source\\repos\\DOTNET\\HAOS-CMS\\HAOS-CMS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\boxer\\.nuget\\packages\\blazor.bootstrap\\3.3.1\\blazor.bootstrap.3.3.1.nupkg.sha512",
+    "C:\\Users\\boxer\\.nuget\\packages\\microsoft.aspnetcore.authorization\\9.0.0\\microsoft.aspnetcore.authorization.9.0.0.nupkg.sha512",
+    "C:\\Users\\boxer\\.nuget\\packages\\microsoft.aspnetcore.components\\9.0.0\\microsoft.aspnetcore.components.9.0.0.nupkg.sha512",
+    "C:\\Users\\boxer\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\9.0.0\\microsoft.aspnetcore.components.analyzers.9.0.0.nupkg.sha512",
+    "C:\\Users\\boxer\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\9.0.0\\microsoft.aspnetcore.components.forms.9.0.0.nupkg.sha512",
+    "C:\\Users\\boxer\\.nuget\\packages\\microsoft.aspnetcore.components.web\\9.0.0\\microsoft.aspnetcore.components.web.9.0.0.nupkg.sha512",
+    "C:\\Users\\boxer\\.nuget\\packages\\microsoft.aspnetcore.metadata\\9.0.0\\microsoft.aspnetcore.metadata.9.0.0.nupkg.sha512",
+    "C:\\Users\\boxer\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.0\\microsoft.extensions.dependencyinjection.9.0.0.nupkg.sha512",
+    "C:\\Users\\boxer\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.0\\microsoft.extensions.dependencyinjection.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\boxer\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.0\\microsoft.extensions.logging.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\boxer\\.nuget\\packages\\microsoft.extensions.options\\9.0.0\\microsoft.extensions.options.9.0.0.nupkg.sha512",
+    "C:\\Users\\boxer\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.0\\microsoft.extensions.primitives.9.0.0.nupkg.sha512",
+    "C:\\Users\\boxer\\.nuget\\packages\\microsoft.jsinterop\\9.0.0\\microsoft.jsinterop.9.0.0.nupkg.sha512"
+  ],
+  "logs": []
 }
