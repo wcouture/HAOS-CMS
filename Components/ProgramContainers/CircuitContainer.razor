@@ -40,6 +40,7 @@
         if (_selectedExercise is null || _selectedExercise.Id == default) 
             return;
         _newWorkout.Exercise_ = _selectedExercise;
+        _newWorkout.TrackingType_ = _selectedType;
         var httpClient = httpClientFactory.CreateClient("api");
         var response = await httpClient.PostAsJsonAsync($"/workouts/add/{circuit.Id}", _newWorkout);
         if (response.IsSuccessStatusCode) {
