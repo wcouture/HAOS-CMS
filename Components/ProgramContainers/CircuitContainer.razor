@@ -97,6 +97,7 @@
     <BodyTemplate>
         <form @formname="workoutForm" @onsubmit="OnCreateWorkout" method="post">
             <TextAreaInput style="margin-bottom: 1rem" @bind-value="_newWorkout!.Description" placeholder="Description" required/>
+            <NumberInput style="margin-bottom: 1rem" @bind-value="_newWorkout!.Rounds" placeholder="Rounds" min="1" required/>
             <Dropdown Color="DropdownColor.Secondary" Label="Exercise">
                 <DropdownToggleButton>
                     @if (_selectedExercise is not null) {
