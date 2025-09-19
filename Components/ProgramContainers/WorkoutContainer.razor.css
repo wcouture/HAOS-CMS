@@ -5,9 +5,26 @@
   text-align: start;
 }
 
+.workout-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: left;
+}
+
 .workout-name {
   font-weight: bold;
   font-size: 10pt;
+}
+
+.workout-rounds {
+  font-size: 8pt;
+  font-style: italic;
+}
+
+.workout-type {
+  font-size: 8pt;
+  font-style: italic;
 }
 
 .workout-description {
