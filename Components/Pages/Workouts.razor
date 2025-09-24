@@ -19,7 +19,7 @@
 
 <Modal @ref="editWorkoutModal" Title="Edit Exercise">
     <BodyTemplate>
-        <form @formname="editWorkoutForm" @onsubmit="OnSubmitEditWorkout">
+        <form @formname="editWorkoutForm" @onsubmit="OnUpdateWorkout(_editWorkout!.Id)">
             <TextInput @bind-value="_editWorkout!.Name" placeholder="Exercise Name" required type="text"/>
             <TextInput @bind-value="_editWorkout!.DemoUrl" placeholder="Demo URL" required type="text"/>
             <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Save Changes</Button>
@@ -69,6 +69,9 @@ else
 
     [SupplyParameterFromForm]
     private Exercise? _newWorkout {get; set;} = new();
+
+    [SupplyParameterFromForm]
+    private Exercise? _editWorkout {get; set;} = new();
 
     protected override async Task OnInitializedAsync()
     {
