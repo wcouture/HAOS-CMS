@@ -19,7 +19,7 @@
 
 <Modal @ref="editWorkoutModal" Title="Edit Exercise">
     <BodyTemplate>
-        <form @formname="editWorkoutForm" @onsubmit="OnUpdateWorkout(_editWorkout!.Id)">
+        <form @formname="editWorkoutForm" @onsubmit="OnUpdateWorkout">
             <TextInput @bind-value="_editWorkout!.Name" placeholder="Exercise Name" required type="text"/>
             <TextInput @bind-value="_editWorkout!.DemoUrl" placeholder="Demo URL" required type="text"/>
             <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Save Changes</Button>
@@ -107,9 +107,9 @@ else
         await editWorkoutModal.ShowAsync();
     }
 
-    private async Task OnUpdateWorkout(int id) {
+    private async Task OnUpdateWorkout() {
         var httpClient = httpClientFactory.CreateClient("api");
-        var response = await httpClient.PutAsJsonAsync($"/exercises/update/{id}", _editWorkout);
+        var response = await httpClient.PutAsJsonAsync($"/exercises/update/{_editWorkout!.Id}", _editWorkout);
 
         if (response.IsSuccessStatusCode) {
             await editWorkoutModal.HideAsync();
