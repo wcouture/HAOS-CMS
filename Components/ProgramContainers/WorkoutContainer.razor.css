@@ -8,8 +8,9 @@
 .workout-details {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: left;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5px;
 }
 
 .workout-name {
