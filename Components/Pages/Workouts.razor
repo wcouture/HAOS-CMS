@@ -12,6 +12,8 @@
         <form @formname="workoutForm" @onsubmit="OnSubmitWorkout">
             <TextInput @bind-value="_newWorkout!.Name" placeholder="Exercise Name" required type="text"/>
             <TextInput @bind-value="_newWorkout!.DemoUrl" placeholder="Demo URL" required type="text"/>
+            <Checkbox @bind-Value="_newWorkout!.ShowDemo">Show Demo</Checkbox>
+            <Checkbox @bind-Value="_newWorkout!.PremiumDemo">Premium Demo</Checkbox>
             <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Add Exercise</Button>
         </form>
     </BodyTemplate>
@@ -22,6 +24,8 @@
         <form @formname="editWorkoutForm" @onsubmit="OnUpdateWorkout">
             <TextInput @bind-value="_editWorkout!.Name" placeholder="Exercise Name" required type="text"/>
             <TextInput @bind-value="_editWorkout!.DemoUrl" placeholder="Demo URL" required type="text"/>
+            <Checkbox @bind-Value="_editWorkout!.ShowDemo">Show Demo</Checkbox>
+            <Checkbox @bind-Value="_editWorkout!.PremiumDemo">Premium Demo</Checkbox>
             <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Save Changes</Button>
         </form>
     </BodyTemplate>
