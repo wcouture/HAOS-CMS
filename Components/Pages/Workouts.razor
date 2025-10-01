@@ -12,8 +12,10 @@
         <form @formname="workoutForm" @onsubmit="OnSubmitWorkout">
             <TextInput @bind-value="_newWorkout!.Name" placeholder="Exercise Name" required type="text"/>
             <TextInput @bind-value="_newWorkout!.DemoUrl" placeholder="Demo URL" required type="text"/>
-            <CheckboxInput @bind-Value="_newWorkout!.ShowDemo">Show Demo</CheckboxInput>
-            <CheckboxInput @bind-Value="_newWorkout!.PremiumDemo">Premium Demo</CheckboxInput>
+            <label>Show Demo</label>
+            <CheckboxInput @bind-Value="_newWorkout!.ShowDemo"></CheckboxInput>
+            <label>Premium Demo</label>
+            <CheckboxInput @bind-Value="_newWorkout!.PremiumDemo"></CheckboxInput>
             <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Add Exercise</Button>
         </form>
     </BodyTemplate>
@@ -24,8 +26,10 @@
         <form @formname="editWorkoutForm" @onsubmit="OnUpdateWorkout">
             <TextInput @bind-value="_editWorkout!.Name" placeholder="Exercise Name" required type="text"/>
             <TextInput @bind-value="_editWorkout!.DemoUrl" placeholder="Demo URL" required type="text"/>
-            <CheckboxInput @bind-Value="_editWorkout!.ShowDemo">Show Demo</CheckboxInput>
-            <CheckboxInput @bind-Value="_editWorkout!.PremiumDemo">Premium Demo</CheckboxInput>
+            <label>Show Demo</label>
+            <CheckboxInput @bind-Value="_editWorkout!.ShowDemo"></CheckboxInput>
+            <label>Premium Demo</label>
+            <CheckboxInput @bind-Value="_editWorkout!.PremiumDemo"></CheckboxInput>
             <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Save Changes</Button>
         </form>
     </BodyTemplate>
