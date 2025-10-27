@@ -17,12 +17,17 @@
             <label>Premium Demo</label>
             <CheckboxInput @bind-Value="_newWorkout!.PremiumDemo"></CheckboxInput>
             <label>Icon</label>
-            <DropdownInput @bind-Value="_newWorkout!.Icon">
-                @foreach (var icon in Enum.GetValues<ExerciseIcon>())
-                {
-                    <DropdownItem Value="@(icon)">@icon.ToString()</DropdownItem>
-                }
-            </DropdownInput>
+            <Dropdown Color="DropdownColor.Secondary" Label="Icon">
+                <DropdownToggleButton>
+                        @_newWorkout!.Icon.ToString()
+                </DropdownToggleButton>
+                <DropdownMenu>
+                    @foreach (var icon in Enum.GetValues<ExerciseIcon>())
+                    {
+                        <DropdownItem @onclick="() => _newWorkout!.Icon = icon">@icon.ToString()</DropdownItem>
+                    }
+                </DropdownMenu>
+            </Dropdown>
             <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Add Exercise</Button>
         </form>
     </BodyTemplate>
@@ -38,12 +43,17 @@
             <label>Premium Demo</label>
             <CheckboxInput @bind-Value="_editWorkout!.PremiumDemo"></CheckboxInput>
             <label>Icon</label>
-            <DropdownInput @bind-Value="_editWorkout!.Icon">
-                @foreach (var icon in Enum.GetValues<ExerciseIcon>())
-                {
-                    <DropdownItem Value="@(icon)">@icon.ToString()</DropdownItem>
-                }
-            </DropdownInput>
+            <Dropdown Color="DropdownColor.Secondary" Label="Icon">
+                <DropdownToggleButton>
+                        @_newWorkout!.Icon
+                </DropdownToggleButton>
+                <DropdownMenu>
+                    @foreach (var icon in Enum.GetValues<ExerciseIcon>())
+                    {
+                        <DropdownItem @onclick="() => _newWorkout!.Icon = icon">@icon.ToString()</DropdownItem>
+                    }
+                </DropdownMenu>
+            </Dropdown>
             <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Save Changes</Button>
         </form>
     </BodyTemplate>
