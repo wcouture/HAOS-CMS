@@ -16,6 +16,13 @@
             <CheckboxInput @bind-Value="_newWorkout!.ShowDemo"></CheckboxInput>
             <label>Premium Demo</label>
             <CheckboxInput @bind-Value="_newWorkout!.PremiumDemo"></CheckboxInput>
+            <label>Icon</label>
+            <DropdownInput @bind-Value="_newWorkout!.Icon">
+                @foreach (var icon in Enum.GetValues<ExerciseIcon>())
+                {
+                    <DropdownItem Value="@(icon)">@icon.ToString()</DropdownItem>
+                }
+            </DropdownInput>
             <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Add Exercise</Button>
         </form>
     </BodyTemplate>
@@ -30,6 +37,13 @@
             <CheckboxInput @bind-Value="_editWorkout!.ShowDemo"></CheckboxInput>
             <label>Premium Demo</label>
             <CheckboxInput @bind-Value="_editWorkout!.PremiumDemo"></CheckboxInput>
+            <label>Icon</label>
+            <DropdownInput @bind-Value="_editWorkout!.Icon">
+                @foreach (var icon in Enum.GetValues<ExerciseIcon>())
+                {
+                    <DropdownItem Value="@(icon)">@icon.ToString()</DropdownItem>
+                }
+            </DropdownInput>
             <Button type="ButtonType.Submit" Color="ButtonColor.Danger">Save Changes</Button>
         </form>
     </BodyTemplate>
